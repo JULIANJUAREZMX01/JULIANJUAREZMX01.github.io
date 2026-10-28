@@ -1,0 +1,31 @@
+---
+import Base from '@/layouts/Base.astro';
+import { DETALLES } from '@/data/detalles.ts';
+
+export function getStaticPaths() {
+  return Object.entries(DETALLES).map(([slug, d]) => ({ params: { slug }, props: { d } }));
+}
+const { d } = Astro.props;
+---
+<Base title={`${d.nombre} · JAJA.DEV`} description={d.resumen}>
+  <main class="wrap">
+    <p class="migaja"><a href="/#proyectos">← Volver al portafolio</a></p>
+    <section class="bloque">
+      <p class="kicker">{d.kicker}</p>
+      <h1>{d.nombre}</h1>
+      <p class="intro">{d.resumen}</p>
+      <div class="detalle-grid">
+        <article class="panel"><h2>El problema</h2><p>{d.problema}</p></article>
+        <article class="panel"><h2>Lo que construí</h2><ul>{d.solucion.map((s) => <li>{s}</li>)}</ul></article>
+      </div>
+      <div class="detalle-metricas">
+        {d.metricas.map((m) => (<div class="metrica-item"><span class="mono">{m.label}</span><b>{m.valor}</b></div>))}
+      </div>
+      <div class="detalle-grid">
+        <article class="panel"><h2>Stack</h2><p class="tags">{d.stack.map((t) => <span class="tag">{t}</span>)}</p></article>
+        <article class="panel"><h2>Evidencia</h2><ul>{d.evidencia.map((e) => <li>{e}</li>)}</ul></article>
+      </div>
+      {d.enlaces.length > 0 && (<p class="cta-row">{d.enlaces.map((e) => <a class="btn" href={e.href} target="_blank" rel="noopener">{e.label}</a>)}</p>)}
+    </section>
+  </main>
+</Base>

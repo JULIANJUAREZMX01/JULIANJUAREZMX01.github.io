@@ -1,0 +1,90 @@
+---
+import Base from '@/layouts/Base.astro';
+const PERFIL = {
+  nombre: 'Julián Alexander Juárez Alvarado',
+  rol: 'Jefe de Sistemas & Automatización',
+  ubicacion: 'Cancún, Quintana Roo · México',
+  email: 'julianjuarezmx01@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/julianjuarezalvarado/',
+  github: 'https://github.com/JULIANJUAREZMX01',
+  bio: 'Ingeniero de sistemas especializado en automatización end-to-end de procesos logísticos. Diseño soluciones que generan ROI medible, eliminan intervención manual y sostienen operaciones a escala empresarial.',
+};
+const LOGROS = [
+  ['SAC · Sistema de Automatización Completa', 'ROI 3,411% · $5.1M MXN de ahorro anual · payback en 10 días · escalable a 5 CEDIS'],
+  ['Validador v5.0', '85-90% menos tiempo de validación · 99%+ de precisión · ~600 h/año ahorradas'],
+  ['Validación preventiva', 'Detección 5 días antes del recibo físico · costo de errores reducido a cero'],
+  ['Repositorio SQL maestro', '90% menos archivos · 29 queries consolidadas en 22 optimizadas · estándar multi-CEDIS'],
+];
+const PUESTOS = [
+  ['Jefe de Sistemas', 'Tiendas Chedraui · CEDIS Cancún 427, Parque Logístico CaLoPark', 'Automatización enterprise, WMS Manhattan, DB2/AS-400, dashboards y validación preventiva de la operación logística.'],
+  ['Consultoría técnica independiente', 'JAJA.DEV · Cancún', 'Arquitectura, desarrollo y operación de sistemas web sin servidores para hotelería, movilidad, educación y seguridad.'],
+];
+const STACK = [
+  ['Lenguajes', 'Python · TypeScript · SQL · Rust (WASM) · Bash'],
+  ['Backend y datos', 'FastAPI · PostgreSQL · IBM DB2 · SQLAlchemy · Pandas'],
+  ['Frontend', 'React · Astro · Tailwind · GSAP'],
+  ['Infra y DevOps', 'GitHub Actions · Docker · Proxmox · UniFi · CI/CD · observabilidad'],
+  ['Empresarial', 'Manhattan WMS · AS/400 · SAP interfaces · reportes ejecutivos'],
+  ['Seguridad', 'Hardening, auditoría de dependencias, permisos por rol, Blue Team (Kalpixk)'],
+];
+---
+<Base title="CV · Julián Juárez Alvarado" description="CV de Julián Alexander Juárez Alvarado, Jefe de Sistemas y Automatización.">
+  <main class="wrap cv">
+    <p class="migaja no-print"><a href="/">← Volver al portafolio</a></p>
+    <header class="cv-head">
+      <div>
+        <h1>{PERFIL.nombre}</h1>
+        <p class="cv-rol">{PERFIL.rol}</p>
+        <p class="cv-meta">{PERFIL.ubicacion}</p>
+      </div>
+      <div class="cv-contacto">
+        <a href={`mailto:${PERFIL.email}`}>{PERFIL.email}</a>
+        <a href={PERFIL.linkedin} target="_blank" rel="noopener">linkedin.com/in/julianjuarezalvarado</a>
+        <a href={PERFIL.github} target="_blank" rel="noopener">github.com/JULIANJUAREZMX01</a>
+      </div>
+    </header>
+
+    <p class="no-print cv-acciones">
+      <button class="btn" id="cv-print" type="button">Descargar / Imprimir PDF</button>
+      <a class="btn ghost" href={PERFIL.linkedin} target="_blank" rel="noopener">CV completo en LinkedIn</a>
+    </p>
+
+    <section class="cv-sec"><h2>Perfil</h2><p>{PERFIL.bio}</p></section>
+
+    <section class="cv-sec">
+      <h2>Logros verificables</h2>
+      <dl class="cv-logros">
+        {LOGROS.map(([t, d]) => (<div><dt>{t}</dt><dd>{d}</dd></div>))}
+      </dl>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Experiencia</h2>
+      {PUESTOS.map(([rol, lugar, desc]) => (
+        <article class="cv-puesto"><h3>{rol}</h3><p class="cv-lugar">{lugar}</p><p>{desc}</p></article>
+      ))}
+    </section>
+
+    <section class="cv-sec">
+      <h2>Stack</h2>
+      <dl class="cv-stack">{STACK.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}</dl>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Selección de proyectos</h2>
+      <ul class="cv-proyectos">
+        <li><b>Hotel Cantabria</b> — PMS + web multiidioma + 8 QRs, en producción sobre CDN sin servidores.</li>
+        <li><b>MueveCancún</b> — PWA de transporte público con motor de rutas en Rust/WASM offline.</li>
+        <li><b>Kalpixk</b> — SIEM de Blue Team en el navegador, 32 features, sin telemetría externa.</li>
+        <li><b>SAC / Validador</b> — automatización logística con ROI 3,411% y validación preventiva.</li>
+      </ul>
+    </section>
+
+    <footer class="cv-pie">
+      <p>Portafolio: <a href="https://julianjuarezmx01.github.io/">julianjuarezmx01.github.io</a> · Documento generado sin servidores (DACC)</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('cv-print')?.addEventListener('click', () => window.print());
+  </script>
+</Base>

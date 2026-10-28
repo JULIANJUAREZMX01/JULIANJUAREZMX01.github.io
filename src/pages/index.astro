@@ -28,7 +28,9 @@ const contactos = [
         <a href="#nexus">Nexus</a>
       <a href="#metodo">Método</a>
         <a href="#evidencia">Trayectoria</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#homelab">Lab</a>
+      <a href="#contacto">Contacto</a>
+      <a href="/cv/">CV</a>
       </nav>
     </div>
   </header>
@@ -188,6 +190,52 @@ const contactos = [
           <li><span class="fecha">{fecha}</span><div>{hito} <span>· {detalle}</span></div></li>
         ))}
       </ul>
+    </section>
+
+
+    <section class="bloque" id="terminal">
+      <p class="kicker">Terminal</p>
+      <h2>Quién soy, en una terminal</h2>
+      <div class="term">
+        <div class="term-barra"><span class="punto"></span><span class="punto"></span><span class="punto"></span><em>julian@jaja-systems:~$</em></div>
+        <div class="term-cuerpo mono">
+          <p><span class="prompt">$</span> whoami</p>
+          <p class="out">Julián Juárez Alvarado · Jefe de Sistemas &amp; Automatización</p>
+          <p><span class="prompt">$</span> cat bio.txt</p>
+          <p class="out">Ingeniero de sistemas especializado en automatización end-to-end de procesos logísticos. Diseño soluciones que generan ROI medible, eliminan intervención manual y sostienen operaciones a escala empresarial.</p>
+          <p><span class="prompt">$</span> ls skills/</p>
+          <p class="out">├── python/fastapi · react/typescript · postgresql/db2<br/>├── automatización de procesos · arquitectura de sistemas<br/>└── devops &amp; ci/cd · análisis de ROI · infraestructura</p>
+          <p><span class="prompt">$</span> cat contacto.json</p>
+          <p class="out">&#123; 'email': 'julianjuarezmx01@gmail.com', 'linkedin': 'julianjuarezalvarado', 'github': 'JULIANJUAREZMX01' &#125;</p>
+          <p><span class="prompt">$</span> <span class="cursor">▊</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="homelab">
+      <p class="kicker">HomeLab</p>
+      <h2>Donde todo se prueba antes de producción</h2>
+      <p class="intro">No diseño en el aire: cada patrón que uso en clientes se valida primero en mi propio laboratorio.</p>
+      <div class="lab-grid">
+        <article class="panel lab-item">
+          <span class="mono lab-tipo">Servidor principal</span>
+          <h3>Dell PowerEdge R720</h3>
+          <p class="lab-specs">2× Xeon E5-2670 · 128 GB RAM · 8 TB RAID 10</p>
+          <p>Virtualización con Proxmox, contenedores Docker y pipelines de CI/CD propios.</p>
+        </article>
+        <article class="panel lab-item">
+          <span class="mono lab-tipo">Red</span>
+          <h3>UniFi Dream Machine Pro</h3>
+          <p class="lab-specs">Switching 10 Gbps · IDS/IPS · VLANs segregadas</p>
+          <p>Segmentación de red, monitoreo de tráfico y firewall perimetral.</p>
+        </article>
+        <article class="panel lab-item">
+          <span class="mono lab-tipo">Almacenamiento</span>
+          <h3>Synology DS920+</h3>
+          <p class="lab-specs">32 TB en RAID 6 · caché SSD · 10 GbE</p>
+          <p>Respaldos automatizados, versionado de datos y file server del laboratorio.</p>
+        </article>
+      </div>
     </section>
 
     <section class="bloque" id="contacto">
