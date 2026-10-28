@@ -119,3 +119,37 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 .tag { font-family: var(--mono); font-size: .74rem; padding: .22rem .55rem; border: 1px solid var(--line); border-radius: 6px; color: var(--text); background: var(--panel-2); }
 @media (max-width: 640px) { .fila-stack { grid-template-columns: 1fr; gap: .4rem; } }
+
+/* ===== Nexus semántico (ADR-002) ===== */
+.nexus-marco { position: relative; margin-top: 2rem; padding: 1rem; border: 1px solid var(--line); border-radius: 20px; background: radial-gradient(120% 90% at 50% 0%, #0f1c2e 0%, var(--panel) 60%, #0a1422 100%); overflow: hidden; }
+.nexus-leyenda { display: flex; flex-wrap: wrap; gap: .5rem .9rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.nexus-leyenda .tag { display: inline-flex; align-items: center; gap: .45rem; }
+.nexus-leyenda .tag::before { content: ''; width: 9px; height: 9px; border-radius: 50%; }
+.nexus-leyenda .hub::before { background: var(--oro); box-shadow: 0 0 10px var(--oro); }
+.nexus-leyenda .proyecto::before { background: var(--teal); }
+.nexus-leyenda .tecnologia::before { background: #6b8cae; }
+.nexus-leyenda .vertical::before { background: #8b7fb8; }
+#nexus-svg { display: block; width: 100%; height: auto; touch-action: none; }
+.nexus-hilo { stroke: #2a3d58; stroke-width: 1; opacity: .75; transition: stroke .25s, opacity .25s; }
+.nexus-nodo { cursor: pointer; outline: none; transition: opacity .25s ease; }
+.nexus-nodo .nexus-punto { stroke: #071019; stroke-width: 2; transition: r .2s ease, filter .2s ease; }
+.nexus-nodo.kind-hub .nexus-punto { fill: var(--oro); filter: drop-shadow(0 0 14px rgba(216,165,88,.65)); }
+.nexus-nodo.kind-proyecto .nexus-punto { fill: var(--teal); }
+.nexus-nodo.kind-tecnologia .nexus-punto { fill: #6b8cae; }
+.nexus-nodo.kind-vertical .nexus-punto { fill: #8b7fb8; }
+.nexus-nodo .nexus-halo { fill: transparent; }
+.nexus-nodo.kind-hub .nexus-halo { fill: url(#nexus-brillo); }
+.nexus-nodo .nexus-label { fill: var(--text); font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; opacity: 0; transition: opacity .2s ease; pointer-events: none; paint-order: stroke; stroke: #071019; stroke-width: 3px; }
+.nexus-nodo.kind-proyecto .nexus-label, .nexus-nodo.kind-hub .nexus-label { opacity: .92; }
+.nexus-nodo:hover .nexus-label, .nexus-nodo.activo .nexus-label { opacity: 1; }
+.nexus-nodo.apagado { opacity: .18; }
+.nexus-nodo.activo .nexus-punto { filter: drop-shadow(0 0 9px rgba(94,234,212,.9)); }
+.nexus-nodo:hover .nexus-punto, .nexus-nodo:focus-visible .nexus-punto { stroke: var(--oro); stroke-width: 3; }
+.nexus-nodo:focus-visible .nexus-halo { fill: rgba(216,165,88,.18); }
+.nexus-detalle { margin: .9rem .2rem .2rem; min-height: 2.6em; font-size: .92rem; color: var(--muted); }
+.nexus-detalle b { color: var(--text); }
+.nexus-lista { margin-top: .4rem; font-size: .85rem; color: var(--muted); }
+.nexus-lista summary { cursor: pointer; color: var(--oro); }
+.nexus-lista ul { margin: .6rem 0 0; padding-left: 1.1rem; display: grid; gap: .35rem; }
+@media (max-width: 640px) { #nexus-svg { min-height: 420px; } }
+@media (prefers-reduced-motion: reduce) { .nexus-nodo, .nexus-hilo, .nexus-nodo .nexus-label { transition: none; } }

@@ -1,5 +1,10 @@
 # Calendario vivo — Portafolio JAJA.DEV
 
+## 2026-28-oct · Nexus semántico v2
+
+- Rescatado el 'campo semántico Nexus' del portafolio original y reimplementado sin React/d3/R3F: grafo en SVG con física propia (repulsión + resortes + gravedad), 18 nodos (método, 6 proyectos, 5 tecnologías, 5 verticales) y 30 hilos. Hover/tap resalta vecinos, arrastre con pointer capture, clic abre proyecto, soporte de teclado, prefers-reduced-motion y lista textual equivalente. ADR-002.
+- Archivos: src/data/nexus.ts (datos), src/client/nexus.ts (motor), sección #nexus en index, estilos en global.css.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|

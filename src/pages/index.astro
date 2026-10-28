@@ -25,7 +25,8 @@ const contactos = [
       <span class="marca">JAJA.DEV</span>
       <nav>
         <a href="#proyectos">Proyectos</a>
-        <a href="#metodo">Método</a>
+        <a href="#nexus">Nexus</a>
+      <a href="#metodo">Método</a>
         <a href="#evidencia">Trayectoria</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -77,6 +78,42 @@ const contactos = [
             )}
           </article>
         ))}
+      </div>
+    </section>
+
+
+    <section class="bloque" id="nexus">
+      <p class="kicker">Mapa semántico</p>
+      <h2>El Nexus: cómo se conectan mis proyectos</h2>
+      <p class="intro">No es una lista, es una red. Cada nodo es un proyecto, una tecnología o un vertical; cada hilo es lo que comparten. Arrastra, toca un nodo y mira qué se ilumina.</p>
+      <div class="nexus-marco">
+        <div class="nexus-leyenda">
+          <span class="tag hub">Método</span>
+          <span class="tag proyecto">Proyecto</span>
+          <span class="tag tecnologia">Tecnología</span>
+          <span class="tag vertical">Vertical</span>
+        </div>
+        <svg id="nexus-svg" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Grafo semántico de proyectos, tecnologías y verticales">
+          <defs>
+            <radialGradient id="nexus-brillo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#d8a558" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#d8a558" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <g id="nexus-lienzo"></g>
+        </svg>
+        <p id="nexus-detalle" class="nexus-detalle">Toca o pasa el cursor por un nodo: se resaltan sus conexiones. Los nodos con flecha abren el proyecto.</p>
+        <details class="nexus-lista">
+          <summary>Ver las conexiones como lista (para lectores de pantalla)</summary>
+          <ul>
+            <li><b>Cantabria PMS</b> — Astro/CDN, QR físico, hotelería, IA agéntica, CI/CD. En producción.</li>
+            <li><b>KynicOS</b> — IA agéntica, hotelería, CI/CD. Agente operador del método.</li>
+            <li><b>MueveCancún</b> — Astro, Rust/WASM, transporte, CI/CD. PWA offline-first.</li>
+            <li><b>Kalpixk</b> — Rust/WASM, seguridad, Python. SIEM de Blue Team.</li>
+            <li><b>Nexus Concierge</b> — hotelería, IA agéntica. Patrón de automatización.</li>
+            <li><b>Mis Pekes</b> — educación, Astro. En migración sin servidores.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -179,3 +216,7 @@ const contactos = [
     if (el) el.textContent = `· ${new Date().toISOString().slice(0, 10)}`;
   </script>
 </Base>
+
+<script>
+  import "@/client/nexus.ts";
+</script>
