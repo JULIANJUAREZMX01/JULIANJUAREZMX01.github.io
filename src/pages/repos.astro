@@ -1,0 +1,30 @@
+---
+import Base from '@/layouts/Base.astro';
+import { REPOS, CATEGORIAS, PRIVADOS } from '@/data/repos.ts';
+const total = REPOS.length;
+---
+<Base title="Repositorios · JAJA.DEV" description="Catálogo completo de repositorios de Julián Juárez: productos, herramientas, clientes y laboratorio.">
+  <main class="wrap">
+    <p class="migaja"><a href="/">← Portafolio</a></p>
+    <section class="bloque">
+      <p class="kicker">Catálogo abierto</p>
+      <h1>Todos los repositorios, sin maquillaje</h1>
+      <p class="intro">Hay {total} repositorios públicos contados aquí, más {PRIVADOS} de cliente que no se listan por confidencialidad. Cada entrada declara qué aporta — incluidos los que hoy no aportan nada — porque un catálogo honesto vale más que uno inflado.</p>
+      <p class="tags">{CATEGORIAS.map((c) => <a class="tag" href={`#${c.id}`}>{c.label}</a>)}</p>
+
+      {CATEGORIAS.map((cat) => (
+        <div id={cat.id} class="repo-bloque">
+          <h2>{cat.label} <span class="mono">({REPOS.filter((r) => r.categoria === cat.id).length})</span></h2>
+          <div class="repo-lista">
+            {REPOS.filter((r) => r.categoria === cat.id).map((r) => (
+              <a class="repo-fila" href={`/repos/${r.slug}/`}>
+                <div><b>{r.nombre}</b><p>{r.resumen}</p></div>
+                <div class="repo-meta"><span class="tag">{r.stack[0]}</span><span class="mono">{r.estado === 'vivo' ? '● vivo' : '○ repo'}</span></div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  </main>
+</Base>

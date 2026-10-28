@@ -1,0 +1,47 @@
+---
+import Base from '@/layouts/Base.astro';
+---
+<Base title="KynicOS · el agente operador" description="Qué es KynicOS: el agente de IA que opera, documenta y mantiene los sistemas de Julián Juárez.">
+  <main class="wrap">
+    <p class="migaja"><a href="/">← Portafolio</a></p>
+    <section class="bloque">
+      <p class="kicker">El socio artificial</p>
+      <h1>KynicOS</h1>
+      <p class="intro">Un agente de IA que vive dentro del proceso de ingeniería: escribe código, despliega, verifica, documenta y mantiene. No escribe publicaciones por mí ni decide por mí. Ejecuta y rinde cuentas.</p>
+
+      <div class="detalle-grid">
+        <article class="panel">
+          <h2>Qué hace hoy, concretamente</h2>
+          <ul>
+            <li>Recibe eventos del PMS de Cantabria (reserva, llegada, limpieza) y republica los datos del negocio.</li>
+            <li>Avisa por Telegram cuando una operación real ocurre, y cuando es un registro de prueba lo dice.</li>
+            <li>Escribe y despliega código: landing, QR, página de confirmación, este portafolio.</li>
+            <li>Corre los turnos de mantenimiento: salud de sitios, datos rancios, inconsistencias.</li>
+            <li>Documenta cada decisión en un ADR, y cada corrida en el calendario.</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <h2>Qué no hace</h2>
+          <ul>
+            <li>No decide estrategia ni precios. Eso es del dueño.</li>
+            <li>No inventa datos: si no puede verificar, lo declara.</li>
+            <li>No gasta dinero ni contrata servicios sin autorización.</li>
+            <li>No finge éxito: si el deploy falla, lo dice con el log.</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="panel">
+        <h2>Cómo funciona</h2>
+        <p>Cuatro estratos: <b>presentación estática</b> en CDN (nada que parchar), <b>datos como espejo</b> en git (todo auditable), <b>operaciones</b> con permisos por rol y cola offline, y el <b>estrato agéntico</b> que escucha, verifica y documenta. Cada cambio deja tres rastros: commit, ADR y entrada en calendario.</p>
+        <p>La filosofía detrás tiene dos padres: Diógenes, por el desprecio al bloat; Marco Aurelio, por la disciplina del registro diario. El nombre lo dice todo: Kynic + OS.</p>
+      </article>
+
+      <article class="panel">
+        <h2>Cómo hablarle</h2>
+        <p>Por Telegram: <span class="mono">@Kalpixk_AI_bot</span>. También responde en la web del portafolio y en el PMS del hotel. Su código y su constitución están documentados en el repositorio <a href="https://github.com/JULIANJUAREZMX01/KynicOS" target="_blank" rel="noopener">KynicOS</a>.</p>
+        <p class="cta-row"><a class="btn" href="/diogenes/">Ver el codestyle Diógenes</a><a class="btn btn-sec" href="/repos/">Todos los proyectos</a></p>
+      </article>
+    </section>
+  </main>
+</Base>

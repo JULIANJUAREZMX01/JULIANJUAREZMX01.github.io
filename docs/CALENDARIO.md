@@ -12,6 +12,13 @@
 - HomeLab (R720, UDM Pro, DS920+) y TerminalProfile rescatados con datos reales del repo original.
 - Dependencias: astro 7.x + audit fix → 0 vulnerabilidades (antes 16, una crítica). Build: 8 páginas, check 0 errores.
 
+## 2026-28-oct · Presentación al mundo: /yo, /kynicos, /diogenes + catálogo de 27 repos
+
+- Páginas nuevas: /yo (el humano y su trayectoria), /kynicos (el agente operador: qué hace y qué no), /diogenes (codestyle de 8 principios + 6 reglas de estilo), /repos (catálogo navegable por categoría) y /repos/<slug> (ficha de cada repositorio). Total del sitio: 33 páginas estáticas.
+- Catálogo verificado vía API de GitHub: 21 repositorios públicos + 6 privados declarados. Clasificados en producto / herramienta / cliente / plantilla / laboratorio, con evidencia real (commits, pruebas, demos).
+- README reescrito con el enlace vivo en el encabezado, mapa de páginas, arquitectura, números verificables y enlaces a cada proyecto insignia. Documentos durables: docs/REPOSITORIOS.md y docs/CODESTYLE-DIOGENES.md.
+- Honestidad de catálogo: los repos de laboratorio sin descripción (APP, GREEN16, AMERICANGLOBALGORUP) se listan declarando que hoy no aportan. Diógenes manda.
+
 ## Próximos turnos
 | Fecha | Foco previsto |
 |---|---|

@@ -1,0 +1,54 @@
+---
+import Base from '@/layouts/Base.astro';
+const PRINCIPIOS = [
+  ['Cero bloat', 'Si una función no tiene un propósito claro, es basura. Se borra, no se comenta.'],
+  ['La verdad primero', 'Los límites se declaran. Los estados se dicen tal cual: vivo, roto, pendiente. Nada de "próximamente" eterno.'],
+  ['Evidencia sobre promesas', 'Un claim sin commit, ADR, prueba o captura no es un claim: es publicidad.'],
+  ['Reproducible o no existe', 'Un comando construye, un comando despliega. Sin pasos secretos ni "en mi máquina sí funciona".'],
+  ['Git como memoria', 'Un commit, una idea. Mensajes en imperativo. El historial es la documentación primaria.'],
+  ['Documentación como código', 'Cada decisión de arquitectura deja un ADR con contexto, decisión y consecuencias.'],
+  ['Aburrido por fuera', 'Estático, CDN, cero servidores que parchar. La emoción va en el producto, no en la infraestructura.'],
+  ['Soberanía del dueño', 'Los datos se pueden exportar y leer en CSV. Sin lock-in, sin rehenes.'],
+];
+const ESTILO = [
+  ['Nombres en inglés, copy en español', 'El código viaja; el producto habla el idioma del cliente.'],
+  ['Tipos estrictos siempre', 'strict en TypeScript. Nunca any por comodidad: si no lo entiendo, no lo escribo.'],
+  ['Funciones puras en el dominio', 'La lógica de negocio (precios, validaciones, referencias) vive sin DOM y sin red, y por eso se prueba.'],
+  ['Cero estado global en la UI', 'El estado vive donde se usa. Lo demás, se deriva.'],
+  ['Dependencia nueva sin ADR es deuda', 'Antes de instalar, se pregunta: ¿esto lo hago en 30 líneas?'],
+  ['Pruebas por regla de negocio', 'No por cobertura: por cada cosa que puede costar dinero si se rompe.'],
+];
+---
+<Base title="Diógenes.dev · codestyle" description="El codestyle de Julián Juárez y KynicOS: minimalismo de Diógenes, disciplina de Marco Aurelio.">
+  <main class="wrap">
+    <p class="migaja"><a href="/">← Portafolio</a></p>
+    <section class="bloque">
+      <p class="kicker">Codestyle</p>
+      <h1>Diógenes.dev</h1>
+      <p class="intro">Un estilo de código que empieza con una pregunta incómoda: ¿esto necesita existir? Si la respuesta es no, se borra. Si es sí, se construye pequeño, se prueba y se documenta. Nada más.</p>
+      <article class="panel">
+        <h2>Los ocho principios</h2>
+        <div class="grid grid-2">
+          {PRINCIPIOS.map(([titulo, texto], i) => (
+            <div class="principio">
+              <span class="mono num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{titulo}</h3>
+              <p>{texto}</p>
+            </div>
+          ))}
+        </div>
+      </article>
+      <article class="panel">
+        <h2>Reglas de estilo</h2>
+        <ul>
+          {ESTILO.map(([titulo, texto]) => <li><b>{titulo}</b> — {texto}</li>)}
+        </ul>
+      </article>
+      <article class="panel">
+        <h2>El nombre</h2>
+        <p>Díógenes de Sinope vivía en un barril y le dijo a Alejandro Magno que se apartara, que le tapaba el sol. Ese es el criterio: si tu dependencia, tu framework o tu servidor te tapa el sol, sobra. Marco Aurelio pone la otra mitad: disciplina, registro diario, trabajo sin drama. Esa mezcla es el codestyle: <b>mínimo de piezas, máximo de función</b>.</p>
+        <p class="cta-row"><a class="btn" href="/kynicos/">Conoce al operador</a><a class="btn btn-sec" href="/repos/">Verlo aplicado en código</a></p>
+      </article>
+    </section>
+  </main>
+</Base>

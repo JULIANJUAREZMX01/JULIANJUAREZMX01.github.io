@@ -1,0 +1,28 @@
+---
+import Base from '@/layouts/Base.astro';
+import { REPOS } from '@/data/repos.ts';
+
+export function getStaticPaths() {
+  return REPOS.map((r) => ({ params: { slug: r.slug }, props: { r } }));
+}
+const { r } = Astro.props;
+---
+<Base title={`${r.nombre} · JAJA.DEV`} description={r.resumen}>
+  <main class="wrap">
+    <p class="migaja"><a href="/repos/">← Todos los repositorios</a></p>
+    <section class="bloque">
+      <p class="kicker">{r.categoria}</p>
+      <h1 class="mono">{r.nombre}</h1>
+      <p class="intro">{r.resumen}</p>
+      <div class="detalle-grid">
+        <article class="panel"><h2>Qué aporta</h2><p>{r.aporta}</p></article>
+        <article class="panel"><h2>Evidencia</h2><ul>{r.evidencia.map((e) => <li>{e}</li>)}</ul></article>
+      </div>
+      <article class="panel"><h2>Stack</h2><p class="tags">{r.stack.map((t) => <span class="tag">{t}</span>)}</p></article>
+      <p class="cta-row">
+        <a class="btn" href={r.url} target="_blank" rel="noopener">Ver repositorio en GitHub</a>
+        {r.demo && <a class="btn btn-sec" href={r.demo} target="_blank" rel="noopener">Abrir demo en vivo</a>}
+      </p>
+    </section>
+  </main>
+</Base>
