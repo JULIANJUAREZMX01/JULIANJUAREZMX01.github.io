@@ -1,0 +1,133 @@
+---
+import Base from '@/layouts/Base.astro';
+import { PROYECTOS, ESTRATOS } from '@/data/projects.ts';
+
+const evidencias = [
+  ['24 oct 2026', 'Nace el PMS Cantabria: demo estática v4.4', 'Datos de ejemplo, una sola página.'],
+  ['25 oct 2026', 'Cutover a producción con identidad de marca (v7)', '9 piezas gráficas vivas; reserva real verificada E2E.'],
+  ['25 oct 2026', 'Diseño colonial elevado (v8) y sitio animado (v9)', 'GSAP + Lenis; 5 idiomas; accesibilidad de fábrica.'],
+  ['25 oct 2026', 'Sistema físico-digital: 8 QRs verificados', 'Fachada, contacto vCard, WhatsApp, WiFi por piso y concierge.'],
+  ['25 oct 2026', 'Página /confirmacion como destino de conversión', 'Lista para Google Ads y GA4 (ADR-014).'],
+  ['26 oct 2026', 'Gobernanza operativa en marcha', 'ADR-015, turno semanal, auditoría de datos y CI verde.'],
+];
+
+const contactos = [
+  { t: 'Correo', s: 'julianjuarezmx01@gmail.com', h: 'mailto:julianjuarezmx01@gmail.com' },
+  { t: 'LinkedIn', s: '/in/julianjuarezalvarado', h: 'https://mx.linkedin.com/in/julianjuarezalvarado' },
+  { t: 'GitHub', s: '@JULIANJUAREZMX01', h: 'https://github.com/JULIANJUAREZMX01' },
+  { t: 'Telegram', s: 'KynicOS · operador IA', h: 'https://t.me/Kalpixk_AI_bot' },
+];
+---
+<Base title="JAJA.DEV · Julián Juárez — Sistemas que siguen vivos" description="Portafolio de Julián Juárez Alvarado: Jefe de Sistemas & Automatización. Arquitectura DACC: sitios estáticos, datos auditables y un agente operador.">
+  <header class="top">
+    <div class="nav">
+      <span class="marca">JAJA.DEV</span>
+      <nav>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#metodo">Método</a>
+        <a href="#evidencia">Evidencia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="hero-badge"><span class="punto"></span> DACC · nivel E4 · 0 servidores</span>
+      <h1>Código que sobrevive<br /><span class="oro">a la factura del hosting.</span></h1>
+      <p class="rol">Julián Juárez Alvarado · Jefe de Sistemas &amp; Automatización</p>
+      <p class="claim">
+        Diseño sistemas que siguen vivos cuando nadie los mira: sitios estáticos en CDN, datos auditables en git
+        y un agente de IA que despliega, mide, documenta y mantiene. Este portafolio es la demostración.
+      </p>
+      <div class="cta">
+        <a class="btn oro" href="#proyectos">Ver proyectos</a>
+        <a class="btn" href="https://julianjuarezmx01.github.io/cantabria-pms-demo/" target="_blank" rel="noopener">Caso insignia: Cantabria →</a>
+      </div>
+      <div class="datos">
+        <div class="dato"><b data-contador="329">0</b><span>commits en el caso insignia</span></div>
+        <div class="dato"><b data-contador="15">0</b><span>decisiones de arquitectura</span></div>
+        <div class="dato"><b data-contador="42">0</b><span>pruebas automatizadas</span></div>
+        <div class="dato"><b data-contador="0">0</b><span>servidores propios</span></div>
+      </div>
+    </section>
+
+    <section class="bloque" id="proyectos">
+      <p class="eyebrow">Portafolio vivo</p>
+      <h2>Proyectos en operación y laboratorio</h2>
+      <p class="sub">Cada tarjeta declara su estado real. Si un demo depende de una plataforma externa, se dice. La honestidad técnica es parte del producto.</p>
+      <div class="proyectos">
+        {PROYECTOS.map((p) => (
+          <article class="proyecto">
+            <div class="cab">
+              <div>
+                <h3>{p.nombre}</h3>
+                <div class="tipo">{p.tipo}</div>
+              </div>
+              <span class={`semaforo ${p.estado === 'vivo' ? 'vivo' : 'repo'}`}>{p.estadoDetalle}</span>
+            </div>
+            <p>{p.resumen}</p>
+            <div class="tags">{p.stack.map((s) => <span class="tag">{s}</span>)}</div>
+            {p.metrica && <div class="metrica">{p.metrica}</div>}
+            {p.enlaces.length > 0 && (
+              <div class="enlaces">
+                {p.enlaces.map((e) => <a href={e.href} target="_blank" rel="noopener">{e.label} ↗</a>)}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="bloque" id="metodo">
+      <p class="eyebrow">Método propio</p>
+      <h2>DACC — Desarrollo Agéntico de Ciclo Cerrado</h2>
+      <p class="sub">Cuatro estratos que cualquier negocio puede replicar sin depender de un servidor, un plugin o una agencia mensual.</p>
+      <div class="estratos">
+        {ESTRATOS.map((e) => (
+          <div class="estrato">
+            <span class="n">{e.n}</span>
+            <h3>{e.t}</h3>
+            <p>{e.d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bloque" id="evidencia">
+      <p class="eyebrow">Evidencia, no promesas</p>
+      <h2>Del diagnóstico a producción en cuatro días</h2>
+      <p class="sub">Cronología real del caso Cantabria, verificable en el repositorio: cada línea es un commit o un ADR.</p>
+      <ul class="evidencia">
+        {evidencias.map(([fecha, hito, detalle]) => (
+          <li><span class="fecha">{fecha}</span><div>{hito} <span>· {detalle}</span></div></li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="bloque" id="contacto">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Hablemos de tu operación</h2>
+      <p class="sub">Si tu negocio vive en papel, en WhatsApp o en un servidor que se cae, hay un sistema replicable esperando.</p>
+      <div class="contacto">
+        {contactos.map((c) => (
+          <a href={c.h} target="_blank" rel="noopener"><b>{c.t}</b><span>{c.s}</span></a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap fin">
+      <span>© 2026 JAJA.DEV · Julián Juárez Alvarado · Tulancingo / Cancún, México</span>
+      <span class="estado-vivo"><span class="punto"></span> estático · GitHub Pages · sin servidores</span>
+      <span class="mono">build DACC/E4 <span id="sello"></span></span>
+    </div>
+  </footer>
+
+  <script>
+    import '@/client/motion.ts';
+    const el = document.getElementById('sello');
+    if (el) el.textContent = `· ${new Date().toISOString().slice(0, 10)}`;
+  </script>
+</Base>

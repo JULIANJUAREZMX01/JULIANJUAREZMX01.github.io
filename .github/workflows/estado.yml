@@ -1,0 +1,19 @@
+name: Estado de sitios (semanal)
+on:
+  schedule: [{ cron: '0 15 * * 1' }]
+  workflow_dispatch:
+permissions: { contents: write }
+jobs:
+  estado:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/status.mjs
+      - run: |
+          git config user.name "JAJA.DEV Bot"
+          git config user.email "bot@jajadev.mx"
+          git add public/status.json
+          git diff --cached --quiet || git commit -m "chore(estado): refresco semanal de sitios vivos"
+          git push
