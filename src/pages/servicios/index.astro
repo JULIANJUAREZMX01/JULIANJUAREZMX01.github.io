@@ -1,0 +1,79 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const WA = 'https://wa.me/527757591185?text=' + encodeURIComponent('Hola, vi su carta de servicios. Tengo un negocio y quiero informacion.');
+const SERVICIOS = [
+  { icono: '01', nombre: 'Página que vende', desc: 'Landing rápida, multiidioma y sin renta de servidor. Con QR para tu fachada y métricas de contacto.', tags: ['5 idiomas', 'QR', '0 servidores'] },
+  { icono: '02', nombre: 'Menú digital con QR', desc: 'Tu carta con fotos y precios, siempre al día. Se actualiza sin reimprimir y el pedido llega a tu WhatsApp.', tags: ['Restaurantes', 'Sin reimprimir'] },
+  { icono: '03', nombre: 'Chatbot de WhatsApp', desc: 'Contesta solo, 24/7: precios, horarios, disponibilidad y reservas. Te avisa cuando alguien quiere comprar.', tags: ['24/7', 'Reservas', 'IA'] },
+  { icono: '04', nombre: 'Sistema de gestión', desc: 'Habitaciones o mesas, limpieza, extras y caja en una sola pantalla. Reportes que se generan solos.', tags: ['Hoteles', 'Restaurantes'] },
+  { icono: '05', nombre: 'Automatización de procesos', desc: 'Los reportes, inventarios y conciliaciones que hoy haces a mano, corriendo solos cada día.', tags: ['ROI medible', 'Python'] },
+  { icono: '06', nombre: 'Presencia y medición', desc: 'Google Maps, QR impresos en tus menús y pulseras, y página de confirmación medible para anuncios.', tags: ['Google', 'QR físicos'] },
+];
+---
+<Base title="Carta de servicios · JAJA.DEV" description="Páginas, menús QR, chatbots de WhatsApp y sistemas de gestión para hoteles y restaurantes. Diagnóstico sin costo.">
+  <main class="wrap srv">
+    <header class="srv-hero">
+      <p class="kicker">Para hoteles · restaurantes · negocios</p>
+      <h1>Tu negocio vendiendo solo, aunque tú no estés.</h1>
+      <p class="lead">Página con QR, menú digital, WhatsApp automático y sistema de gestión. Instalamos, capacitamos y lo dejamos funcionando.</p>
+      <div class="cta-row">
+        <a class="btn" href={WA} target="_blank" rel="noopener">WhatsApp directo</a>
+        <a class="btn ghost" href="/#proyectos">Ver trabajos reales</a>
+      </div>
+      <p class="srv-nota">Diagnóstico sin costo · cotización en 24 horas</p>
+    </header>
+
+    <section class="srv-bloque">
+      <h2>Qué resolvemos</h2>
+      <div class="srv-grid">
+        {SERVICIOS.map((s) => (
+          <article class="srv-card">
+            <span class="mono srv-num">{s.icono}</span>
+            <h3>{s.nombre}</h3>
+            <p>{s.desc}</p>
+            <p class="tags">{s.tags.map((t) => <span class="tag">{t}</span>)}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="srv-bloque">
+      <h2>Cómo trabajamos</h2>
+      <ol class="srv-pasos">
+        <li><b>Diagnóstico gratis</b><span>20 minutos por WhatsApp. Vemos qué te cuesta clientes hoy.</span></li>
+        <li><b>Prototipo en 7 días</b><span>Ves tu página o sistema funcionando antes de pagar el total.</span></li>
+        <li><b>Entrega y acompañamiento</b><span>Capacitación al equipo y mantenimiento mensual opcional.</span></li>
+      </ol>
+    </section>
+
+    <section class="srv-bloque srv-prueba">
+      <h2>Un caso real, no una promesa</h2>
+      <p>Hotel Cantabria, en Tulancingo: 98 años de historia sin una sola línea de software. En 4 días quedó con web en 5 idiomas, sistema de habitaciones, 8 códigos QR y avisos automáticos por WhatsApp.</p>
+      <p class="srv-metricas"><span><b>4 días</b> a producción</span><span><b>8 QR</b> físico-digital</span><span><b>0</b> servidores que pagar</span><span><b>5</b> idiomas</span></p>
+      <a class="btn" href="/proyectos/cantabria/">Ver el caso completo</a>
+    </section>
+
+    <section class="srv-bloque">
+      <h2>Paquetes</h2>
+      <div class="srv-paquetes">
+        <article class="srv-card"><h3>Presencia</h3><p>Página + QR + Google Maps + menú digital.</p><p class="mono srv-precio">cotización en 24 h</p></article>
+        <article class="srv-card destacado"><h3>Vendedor</h3><p>Presencia + chatbot de WhatsApp con reservas y avisos al dueño.</p><p class="mono srv-precio">cotización en 24 h</p></article>
+        <article class="srv-card"><h3>Operación</h3><p>Todo lo anterior + sistema de gestión y automatización de reportes.</p><p class="mono srv-precio">cotización en 24 h</p></article>
+      </div>
+    </section>
+
+    <section class="srv-bloque srv-cierre">
+      <h2>Guarda este contacto</h2>
+      <div class="srv-qr">
+        <img src="/qr/servicios.png" alt="QR de la carta de servicios" width="220" height="220" loading="lazy" />
+        <div>
+          <p class="mono">Escanea y guarda la página</p>
+          <p>O mándame WhatsApp directo y en 20 minutos sabemos si te sirve.</p>
+          <a class="btn" href={WA} target="_blank" rel="noopener">Abrir WhatsApp</a>
+          <p class="srv-nota">Julián Juárez · Cancún y zona centro · respuesta el mismo día</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

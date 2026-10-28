@@ -215,3 +215,30 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
   a { color: #111 !important; text-decoration: none; }
   .cv-sec { break-inside: avoid; }
 }
+
+/* === Carta de servicios (venta directa, mobile-first) === */
+.srv { padding-block: 2.5rem 4rem; max-width: 860px; }
+.srv-hero { padding-block: 1rem 2.5rem; }
+.srv-hero h1 { font-size: clamp(1.9rem, 6vw, 3.1rem); line-height: 1.1; margin: .6rem 0 1rem; }
+.srv .lead { font-size: 1.05rem; max-width: 46ch; }
+.srv-nota { color: var(--muted); font-size: .85rem; margin-top: .9rem; }
+.srv-bloque { margin-top: 3rem; }
+.srv-bloque h2 { font-size: clamp(1.35rem, 4vw, 1.9rem); margin-bottom: 1.1rem; }
+.srv-grid, .srv-paquetes { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.srv-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.1rem; }
+.srv-card h3 { margin: .4rem 0 .5rem; font-size: 1.05rem; color: var(--text); }
+.srv-card p { color: var(--muted); font-size: .92rem; line-height: 1.55; margin: 0 0 .6rem; }
+.srv-num { color: var(--oro); font-size: .75rem; letter-spacing: .18em; }
+.srv-card.destacado { border-color: var(--oro); box-shadow: 0 0 0 1px rgba(216,165,88,.25), 0 18px 40px -24px rgba(216,165,88,.5); }
+.srv-precio { color: var(--teal); font-size: .8rem; margin-top: .8rem; }
+.srv-pasos { list-style: none; padding: 0; display: grid; gap: .9rem; counter-reset: paso; }
+.srv-pasos li { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem; }
+.srv-pasos li::before { counter-increment: paso; content: counter(paso); color: var(--oro); font-family: var(--mono); font-size: 1.1rem; border: 1px solid var(--line); border-radius: 50%; width: 2rem; height: 2rem; display: grid; place-items: center; }
+.srv-pasos b { display: block; margin-bottom: .2rem; }
+.srv-pasos span { color: var(--muted); font-size: .92rem; }
+.srv-prueba { background: var(--panel-2); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem 1.3rem; }
+.srv-metricas { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; margin: 1.2rem 0; color: var(--muted); font-size: .85rem; }
+.srv-metricas b { color: var(--oro); font-family: var(--mono); }
+.srv-cierre .srv-qr { display: grid; gap: 1.4rem; grid-template-columns: auto 1fr; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 1.4rem; }
+.srv-cierre img { background: #f2e8d5; border-radius: 12px; padding: .4rem; }
+@media (max-width: 640px) { .srv-cierre .srv-qr { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
