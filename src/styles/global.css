@@ -97,3 +97,25 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
 .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px rgba(94,234,212,.8); animation: pulso 2.4s ease-in-out infinite; }
 @keyframes pulso { 50% { opacity: .35; } }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* --- Trayectoria, principios y stack (v2: rescate del portafolio original) --- */
+.logros { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.logro h3 { font-size: 1.05rem; color: var(--oro); }
+.logro .contexto { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin: .3rem 0 .9rem; }
+.metricas { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: .8rem; }
+.metrica .valor { display: block; font-family: var(--mono); font-size: 1.25rem; color: var(--teal); }
+.metrica .etiqueta { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.logro p { color: var(--muted); font-size: .92rem; }
+.frase { border-left: 3px solid var(--oro); padding: .9rem 1.2rem; margin: 1.6rem 0 0; font-size: 1.05rem; color: var(--text); font-style: italic; }
+.principios { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.principio .num { color: var(--oro); font-size: .8rem; letter-spacing: .2em; }
+.principio h3 { margin: .5rem 0; font-size: 1.1rem; }
+.principio p { color: var(--muted); font-size: .93rem; }
+.stack { margin-top: 1.6rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.4rem; }
+.stack h3 { color: var(--teal); font-size: .9rem; margin-bottom: .9rem; }
+.fila-stack { display: grid; grid-template-columns: 200px 1fr; gap: 1rem; padding: .5rem 0; border-top: 1px solid var(--line); align-items: center; }
+.fila-stack:first-of-type { border-top: none; }
+.categoria { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag { font-family: var(--mono); font-size: .74rem; padding: .22rem .55rem; border: 1px solid var(--line); border-radius: 6px; color: var(--text); background: var(--panel-2); }
+@media (max-width: 640px) { .fila-stack { grid-template-columns: 1fr; gap: .4rem; } }

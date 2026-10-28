@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { PROYECTOS, ESTRATOS } from '@/data/projects.ts';
+import { LOGROS, PRINCIPIOS, STACK, FRASE } from '@/data/trayectoria.ts';
 
 const evidencias = [
   ['24 oct 2026', 'Nace el PMS Cantabria: demo estática v4.4', 'Datos de ejemplo, una sola página.'],
@@ -25,7 +26,7 @@ const contactos = [
       <nav>
         <a href="#proyectos">Proyectos</a>
         <a href="#metodo">Método</a>
-        <a href="#evidencia">Evidencia</a>
+        <a href="#evidencia">Trayectoria</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -89,6 +90,53 @@ const contactos = [
             <span class="n">{e.n}</span>
             <h3>{e.t}</h3>
             <p>{e.d}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+
+    <section class="bloque" id="trayectoria">
+      <p class="eyebrow">Antes del código público · Chedraui CEDIS Cancún 427</p>
+      <h2>Logros que se miden en dinero, no en pantallas</h2>
+      <p class="sub">Jefe de Sistemas en un CEDIS de 427 puertas: automatización de validación logística con ROI auditado. Este es el sustrato del portafolio.</p>
+      <div class="grid logros">
+        {LOGROS.map((l) => (
+          <article class="card logro">
+            <header>
+              <h3>{l.nombre}</h3>
+              <p class="mono contexto">{l.contexto}</p>
+            </header>
+            <div class="metricas">
+              {l.metricas.map(([k, v]) => (
+                <div class="metrica"><span class="valor">{v}</span><span class="etiqueta">{k}</span></div>
+              ))}
+            </div>
+            <p>{l.detalle}</p>
+          </article>
+        ))}
+      </div>
+      <blockquote class="frase">{FRASE}</blockquote>
+    </section>
+
+    <section class="bloque" id="principios">
+      <p class="eyebrow">Cómo trabajo</p>
+      <h2>Tres principios, cero adornos</h2>
+      <div class="grid principios">
+        {PRINCIPIOS.map((p, i) => (
+          <article class="card principio">
+            <span class="num mono">0{i + 1}</span>
+            <h3>{p.titulo}</h3>
+            <p>{p.texto}</p>
+          </article>
+        ))}
+      </div>
+      <div class="stack">
+        <h3 class="mono">$ ls stack/</h3>
+        {STACK.map(([cat, items]) => (
+          <div class="fila-stack">
+            <span class="categoria">{cat}</span>
+            <div class="tags">{items.map((t) => <span class="tag">{t}</span>)}</div>
           </div>
         ))}
       </div>
