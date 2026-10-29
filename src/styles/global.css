@@ -309,3 +309,8 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
 .srv-cond{margin:1.5rem 0 2rem;border-left:3px solid var(--verde,#1f7a4d);padding:.9rem 0 .9rem 1.1rem}
 .srv-cond ul{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem}
 .srv-cond li{font-size:.92rem;line-height:1.55;color:var(--tinta,#3a2b2f)}
+
+.srv-qr{display:flex;align-items:center;gap:1rem;background:#fff;border:1.5px solid #e2d6c8;border-radius:16px;padding:.85rem;margin:0 0 1.1rem;text-decoration:none;color:#2a0a10;box-shadow:0 8px 22px rgba(122,18,32,.10)}
+.srv-qr img{border-radius:10px;display:block}
+.srv-qr strong{display:block;font-size:1.05rem;color:#7a1220}
+.srv-qr em{font-style:normal;font-size:.82rem;color:#6b5356;line-height:1.35;display:block;margin-top:.15rem}
