@@ -292,3 +292,7 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
 .srv-barra a{padding:1rem;text-align:center;font-weight:700;text-decoration:none;background:var(--panel);color:var(--text)}
 .srv-barra a:first-child{background:var(--teal);color:#06231f}
 @media(min-width:700px){.srv-grid{grid-template-columns:repeat(2,1fr)}.srv-paqs{grid-template-columns:repeat(3,1fr)}.srv-prueba{grid-template-columns:repeat(4,1fr)}.srv-barra{display:none}}
+
+.srv-marca-fila{display:flex;align-items:center;gap:.85rem;margin-bottom:1.1rem}
+.srv-logo{border-radius:50%;border:2px solid var(--teal);box-shadow:0 0 0 4px rgba(94,234,212,.12)}
+.srv-lema{margin:.1rem 0 0;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
