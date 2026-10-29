@@ -1,0 +1,57 @@
+---
+import Base from '@/layouts/Base.astro';
+const WA = 'https://wa.me/5219813344909?text=' + encodeURIComponent('Hola, vi su tarjeta UNT y quiero información.');
+---
+<Base title="Tarjeta UNT · imprimible" description="Tarjeta de presentación imprimible de UNT Tecnologías Computacionales Cancún.">
+  <main class="tarjeta-pagina">
+    <p class="tarjeta-ayuda">Vista previa real: 90 × 55 mm. Imprime al 100% en papel grueso, recorta por la línea punteada.</p>
+
+    <div class="tarjeta-frente">
+      <img src="/unt-logo-192.png" width="56" height="56" alt="UNT" class="t-logo" />
+      <div>
+        <p class="t-marca">UNT</p>
+        <p class="t-sub">Tecnologías Computacionales</p>
+      </div>
+      <p class="t-lema">Systems · Engineering · Development</p>
+      <p class="t-nombre">Julián Juárez Alvarado</p>
+      <p class="t-puesto">Jefe de Sistemas &amp; Automatización</p>
+      <p class="t-tel">WhatsApp 981 334 4909</p>
+      <img src="/qr/servicios.png" width="86" height="86" alt="QR" class="t-qr" />
+    </div>
+
+    <div class="tarjeta-reves">
+      <p class="t-titulo">Lo que hacemos</p>
+      <ul class="t-lista">
+        <li>Página web que vende, con QR</li>
+        <li>Menú digital para restaurantes</li>
+        <li>WhatsApp que contesta solo</li>
+        <li>Sistema de gestión para tu negocio</li>
+        <li>Reportes y automatización</li>
+      </ul>
+      <p class="t-pie">julianjuarezmx01.github.io/servicios<br />Diagnóstico gratis · cotización el mismo día</p>
+    </div>
+
+    <p class="tarjeta-ayuda">Escanea el QR para abrir la carta completa.</p>
+  </main>
+  <style>
+    .tarjeta-pagina{max-width:640px;margin:2rem auto;padding:1rem;display:grid;gap:1.4rem;background:#f2ebe1;border-radius:14px}
+    .tarjeta-ayuda{font-family:var(--mono);font-size:.75rem;color:#7a6660;text-align:center;margin:0}
+    .tarjeta-frente,.tarjeta-reves{width:90mm;height:55mm;margin:0 auto;background:#fffdf8;border:1px dashed #c9b8a4;
+      border-radius:4mm;padding:5mm;position:relative;color:#2a1114;box-sizing:border-box;overflow:hidden}
+    .tarjeta-frente{border-left:3mm solid #8f1d2c;display:grid;grid-template-columns:auto 1fr;align-content:start;gap:0 3mm}
+    .t-logo{grid-row:1;border-radius:50%}
+    .t-marca{margin:0;font-family:var(--mono);font-size:13pt;font-weight:700;letter-spacing:.18em;color:#8f1d2c;line-height:1}
+    .t-sub{margin:.6mm 0 0;font-size:6.4pt;letter-spacing:.16em;text-transform:uppercase;color:#7a6660}
+    .t-lema{grid-column:1/-1;margin:1.6mm 0 0;font-family:var(--mono);font-size:5.4pt;letter-spacing:.16em;color:#1f7a4d;text-transform:uppercase}
+    .t-nombre{grid-column:1/-1;margin:2.4mm 0 0;font-size:10.5pt;font-weight:700}
+    .t-puesto{grid-column:1/-1;margin:.4mm 0 0;font-size:6.6pt;color:#7a6660}
+    .t-tel{grid-column:1/-1;margin:1.6mm 0 0;font-family:var(--mono);font-size:7pt;color:#1f7a4d}
+    .t-qr{position:absolute;right:4mm;bottom:4mm;border:1px solid #e3d5c3;border-radius:1.5mm;padding:1mm;background:#fff}
+    .tarjeta-reves{border-top:3mm solid #1f7a4d}
+    .t-titulo{margin:0 0 1.6mm;font-family:var(--mono);font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:#8f1d2c}
+    .t-lista{margin:0;padding-left:3.6mm;font-size:6.8pt;line-height:1.45}
+    .t-pie{position:absolute;left:5mm;right:5mm;bottom:4mm;margin:0;font-family:var(--mono);font-size:5.6pt;color:#7a6660;border-top:1px solid #e3d5c3;padding-top:1.2mm}
+    @media print{ .tarjeta-pagina{background:#fff;max-width:none;margin:0;padding:0} .tarjeta-ayuda{display:none}
+      .tarjeta-frente,.tarjeta-reves{border-style:solid;page-break-inside:avoid;margin:4mm auto} }
+  </style>
+</Base>

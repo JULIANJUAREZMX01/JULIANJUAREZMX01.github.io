@@ -16,9 +16,9 @@ const SERVICIOS = [
 ];
 
 const PAQUETES = [
-  { n: 'Presencia', p: 'Si aún no existes en internet', it: ['Página con WhatsApp y QR', 'Google Maps y horarios', 'QR para imprimir'], pr: 'desde $4,500' },
-  { n: 'Vendedor', p: 'Si ya tienes clientes y quieres más', it: ['Página + menú digital QR', 'WhatsApp automático', 'Medición de resultados'], pr: 'desde $9,500', d: true },
-  { n: 'Operación', p: 'Si quieres controlar tu negocio de verdad', it: ['Sistema de gestión', 'Automatización de reportes', 'Capacitación al equipo'], pr: 'desde $25,000' },
+  { n: 'Presencia', p: 'Para que te encuentren y te crean', it: ['Landing de una página con tu marca', 'Menú o catálogo con QR', 'WhatsApp con mensaje listo', 'Ficha de Google y medición'], antes: '$7,900', ahora: '$3,950', d: true },
+  { n: 'Vendedor', p: 'Para vender sin estar presente', it: ['Todo lo de Presencia', 'Menú digital QR actualizable', 'Asistente de WhatsApp 24/7', 'Reporte mensual de contactos'], antes: '$15,900', ahora: '$7,950' },
+  { n: 'Operación', p: 'Para controlar el negocio de verdad', it: ['Todo lo de Vendedor', 'Sistema de gestión a medida', 'Automatización de reportes', 'Capacitación al equipo'], antes: '$34,900', ahora: '$17,450' },
 ];
 ---
 <Base title="UNT Tecnologías Computacionales Cancún · Carta de Servicios" description="Páginas, menús QR, WhatsApp automático y sistemas de gestión para hoteles, restaurantes y negocios. Diagnóstico gratis.">
@@ -31,6 +31,7 @@ const PAQUETES = [
         <a class="srv-btn" href={WA} target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
         <a class="srv-btn suave" href={TEL}>Llamar ahora</a>
       </div>
+      <p class="srv-promo">Promo de lanzamiento: 50% en los tres paquetes · cierra el 30 de noviembre</p>
       <p class="srv-nota">Diagnóstico gratis de 20 minutos · Cotización el mismo día · Sin mensualidades de servidor</p>
     </section>
 
@@ -80,6 +81,7 @@ const PAQUETES = [
             {p.d && <span class="srv-tag">El más pedido</span>}
             <h3>{p.n}</h3>
             <p class="srv-para">{p.p}</p>
+            <p class="srv-precio"><span class="srv-precio-antes">{p.antes}</span><b class="srv-precio-ahora">{p.ahora}</b> <span class="srv-paq-nota">MXN · promo 50%</span></p>
             <ul>{p.it.map((x) => <li>{x}</li>)}</ul>
             <span class="srv-precio">{p.pr}</span>
             <a class="srv-btn mini" href={WA} target="_blank" rel="noopener">Quiero este</a>
@@ -125,4 +127,22 @@ const PAQUETES = [
     <a href={WA} target="_blank" rel="noopener">WhatsApp</a>
     <a href={TEL}>Llamar</a>
   </div>
+
+<style is:global>
+.srv { --bg:#f7f2e9; --panel:#fffdf8; --line:#e3d5c3; --text:#2a1114; --muted:#7a6660;
+  --oro:#8f1d2c; --teal:#1f7a4d; background:var(--bg); color:var(--text); }
+body { background:#f7f2e9; }
+.srv-marca { color:#8f1d2c; }
+.srv h1, .srv h2 { color:#2a1114; }
+.srv .srv-lead { color:#5b4640; }
+.srv-btn { background:#1f7a4d; color:#fff; border-color:#1f7a4d; }
+.srv-btn.suave { background:#fff; color:#8f1d2c; border-color:#8f1d2c; }
+.srv-prueba, .srv-paquete, .srv-servicio { background:var(--panel); border-color:var(--line); }
+.srv-num, .srv-precio-ahora { color:#8f1d2c; }
+.srv-promo { display:block; background:#8f1d2c; color:#fff; text-align:center; padding:.6rem 1rem;
+  border-radius:999px; font-family:var(--mono); font-size:.82rem; letter-spacing:.04em; margin:1rem auto 0; max-width:34rem; }
+.srv-precio-antes { text-decoration:line-through; color:#a08d86; font-size:.95rem; margin-right:.45rem; }
+.srv-barra { background:#fffdf8; border-top:1px solid #e3d5c3; }
+</style>
+
 </Base>
