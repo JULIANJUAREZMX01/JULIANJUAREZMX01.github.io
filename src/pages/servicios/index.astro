@@ -31,7 +31,7 @@ const PAQUETES = [
         <a class="srv-btn" href={WA} target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
         <a class="srv-btn suave" href={TEL}>Llamar ahora</a>
       </div>
-      <p class="srv-promo">Promo de lanzamiento: 50% en los tres paquetes · cierra el 30 de noviembre</p>
+      <p class="srv-promo">Promo de lanzamiento: arranque de $950 y 50% en los tres paquetes · cierra el 30 de noviembre</p>
       <p class="srv-nota">Diagnóstico gratis de 20 minutos · Cotización el mismo día · Sin mensualidades de servidor</p>
     </section>
 
@@ -55,7 +55,7 @@ const PAQUETES = [
           </article>
         ))}
       </div>
-      <p class="srv-nota">Rangos indicativos en pesos. El precio final depende de lo que necesites: te lo digo claro y por escrito antes de empezar.</p>
+      <p class="srv-nota">Precios en pesos. A cualquier paquete se le descuentan tus $950 de arranque. Sin mensualidad obligatoria de servidor.</p>
     </section>
 
     <section class="srv-sec">
@@ -75,6 +75,15 @@ const PAQUETES = [
 
     <section class="srv-sec">
       <h2>Paquetes</h2>
+      <h2 class="srv-h2">Cómo funciona el pago</h2>
+      <p class="srv-sub">Sin enganches raros. Pagas poco para arrancar, pruebas un mes y decides con el sistema funcionando.</p>
+      <div class="srv-pasos">
+        <div class="srv-paso"><span class="srv-paso-n">1</span><h3>Arranque · $950</h3><p>Diseño, arquitectura, planeación y documentación de decisiones (ADRs). Es todo lo que se piensa antes de escribir la primera línea.</p></div>
+        <div class="srv-paso"><span class="srv-paso-n">2</span><h3>Mes de prueba</h3><p>Usas el sistema un mes completo en tu negocio, con tus clientes reales. Si no te convence, ahí termina y no debes nada más.</p></div>
+        <div class="srv-paso"><span class="srv-paso-n">3</span><h3>Entrega y pago final</h3><p>Si te sirve y quieres quedártelo, pagas el paquete <b>menos tus $950</b>. El proyecto queda finalizado, entregado y es tuyo.</p></div>
+        <div class="srv-paso"><span class="srv-paso-n">4</span><h3>Mes 2 de soporte · $0</h3><p>Atención técnica sin costo: hasta 5 sesiones de 1 hora durante el segundo mes.</p></div>
+        <div class="srv-paso"><span class="srv-paso-n">5</span><h3>Después · $1,250 por sesión</h3><p>A partir del tercer mes, cada sesión de soporte o ajuste cuesta $1,250. Sin mensualidad forzosa.</p></div>
+      </div>
       <div class="srv-paqs">
         {PAQUETES.map((p) => (
           <article class={`srv-paq${p.d ? ' destacado' : ''}`}>
