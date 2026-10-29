@@ -84,7 +84,18 @@ const PAQUETES = [
         <div class="srv-paso"><span class="srv-paso-n">4</span><h3>Mes 2 de soporte · $0</h3><p>Atención técnica sin costo: hasta 5 sesiones de 1 hora durante el segundo mes.</p></div>
         <div class="srv-paso"><span class="srv-paso-n">5</span><h3>Después · $1,250 por sesión</h3><p>A partir del tercer mes, cada sesión de soporte o ajuste cuesta $1,250. Sin mensualidad forzosa.</p></div>
       </div>
-      <div class="srv-paqs">
+          <section class="srv-cond">
+      <h2 class="srv-h2">Condiciones claras</h2>
+      <ul>
+        <li>Los <strong>$950 de arranque</strong> cubren diseño, arquitectura, planeación y ADRs, e incluyen el <strong>prototipo funcional</strong>. El código, los ADRs y el dominio se entregan al liquidar el paquete.</li>
+        <li>El <strong>mes de prueba</strong> es del sistema funcionando, no de la propiedad del código.</li>
+        <li>Al aceptar, el pago del paquete se liquida en <strong>7 días naturales</strong> y se descuentan los $950 ya pagados.</li>
+        <li><strong>Mes 2 de soporte incluido:</strong> 5 sesiones de hasta 1 hora, agendadas con 24 h de anticipación, no acumulables.</li>
+        <li>Después del mes 2: <strong>$1,250 por sesión</strong> de soporte. Sin mensualidad obligatoria de servidor.</li>
+      </ul>
+    </section>
+
+<div class="srv-paqs">
         {PAQUETES.map((p) => (
           <article class={`srv-paq${p.d ? ' destacado' : ''}`}>
             {p.d && <span class="srv-tag">El más pedido</span>}

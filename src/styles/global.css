@@ -305,3 +305,7 @@ footer .mono { font-family: var(--mono); font-size: .74rem; }
 .srv-paso h3{margin:.2rem 0 .35rem;font-size:1rem;color:#5c1019}
 .srv-paso p{margin:0;font-size:.92rem;color:#3f2a2e;line-height:1.5}
 .srv-paso-n{display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;border-radius:50%;background:#8f1d2c;color:#fff;font-family:var(--mono);font-size:.8rem;font-weight:700}
+
+.srv-cond{margin:1.5rem 0 2rem;border-left:3px solid var(--verde,#1f7a4d);padding:.9rem 0 .9rem 1.1rem}
+.srv-cond ul{margin:.6rem 0 0;padding-left:1.1rem;display:grid;gap:.5rem}
+.srv-cond li{font-size:.92rem;line-height:1.55;color:var(--tinta,#3a2b2f)}
