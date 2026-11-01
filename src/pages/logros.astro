@@ -1,0 +1,103 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const ITEMS = [
+  {
+    n: 'Hotel Cantabria, en Tulancingo',
+    que: 'Un hotel de 98 años ya tiene su página en cinco idiomas y un sistema para administrar habitaciones, limpieza y extras.',
+    por: 'Pasó de no tener nada digital a operar en línea en cuatro días.',
+    img: '/evidencia/cantabria.webp',
+    href: 'https://julianjuarezmx01.github.io/cantabria-pms-demo/',
+  },
+  {
+    n: 'Mi portafolio',
+    que: 'El sitio donde presento mi trabajo, con el detalle técnico de cada proyecto.',
+    por: 'Antes vivía en un servidor que se cayó; ahora no depende de nadie y no cuesta renta.',
+    img: '/evidencia/portafolio.webp',
+    href: 'https://julianjuarezmx01.github.io/',
+  },
+  {
+    n: 'Carta de Servicios UNT',
+    que: 'La página con la que ofrezco páginas web, menús con QR, WhatsApp automático y sistemas de gestión a hoteles y restaurantes.',
+    por: 'Es mi herramienta de venta: se abre en el teléfono y cierra por WhatsApp.',
+    img: '/evidencia/servicios.webp',
+    href: 'https://julianjuarezmx01.github.io/servicios/',
+  },
+  {
+    n: 'El QR que abre la conversación',
+    que: 'Un código que la gente escanea y elige: escribir por WhatsApp o ver los servicios.',
+    por: 'Convierte una tarjeta de papel en una conversación real.',
+    img: '/evidencia/escanea.webp',
+    href: 'https://julianjuarezmx01.github.io/escanea/',
+  },
+  {
+    n: 'Kalpixk, seguridad con inteligencia artificial',
+    que: 'Un sistema que detecta comportamientos raros en redes y equipos antes de que se vuelvan un problema.',
+    por: 'Lo presenté en un hackathon y quedó funcionando en línea.',
+    img: '/evidencia/kalpixk.webp',
+    href: 'https://julianjuarezmx01.github.io/Wasm-Kalpixk_IA_DevOps/',
+  },
+  {
+    n: 'MueveCancún, transporte para la ciudad',
+    que: 'Una aplicación para moverse en Cancún que funciona incluso con internet intermitente.',
+    por: 'Nació de un problema real: subirse al camión sin saber qué ruta tomar.',
+    img: '/evidencia/mueve.webp',
+    href: 'https://mueve-cancun-sigma.vercel.app/',
+  },
+];
+
+const LINEA = [
+  ['24 de octubre', 'Arranqué el sistema del Hotel Cantabria desde cero.'],
+  ['25 de octubre', 'Cinco idiomas, códigos QR para fachada y habitaciones, y página de confirmación de reservas.'],
+  ['26 de octubre', 'Automaticé la operación: cada cambio de habitación se registra y me avisa.'],
+  ['28 de octubre', 'Publiqué mi portafolio nuevo, sin servidores que pagar.'],
+  ['29 de octubre', 'Nació la Carta de Servicios de UNT y las tarjetas con QR para vender en la calle.'],
+  ['1 de noviembre', 'El mantenimiento ya corre solo: cada semana revisa que todo esté vivo.'],
+];
+---
+<Base title="Lo que construí · últimos 60 días" description="Seis proyectos en línea de Julián Juárez Alvarado: el Hotel Cantabria, su portafolio, la carta de servicios de UNT, Kalpixk y MueveCancún.">
+  <main class="log">
+    <header class="log-hero">
+      <p class="log-kicker">Septiembre a noviembre de 2026</p>
+      <h1>Lo que construí<br />en los últimos 60 días</h1>
+      <p class="log-lead">Seis cosas que hoy se pueden abrir desde un teléfono. Sin instalar nada, sin pedir permiso a nadie. Esta página la hice para mostrarlo en dos minutos.</p>
+    </header>
+
+    <section class="log-nums">
+      <div><b>6</b><span>proyectos en línea</span></div>
+      <div><b>33</b><span>páginas publicadas</span></div>
+      <div><b>5</b><span>idiomas en el hotel</span></div>
+      <div><b>8</b><span>códigos QR</span></div>
+      <div><b>0</b><span>pesos de renta de servidor</span></div>
+    </section>
+
+    {ITEMS.map((p) => (
+      <article class="log-card">
+        <img src={p.img} alt={p.n} width="900" height="562" loading="lazy" />
+        <div class="log-body">
+          <h2>{p.n}</h2>
+          <p>{p.que}</p>
+          <p class="log-por"><strong>Por qué importa:</strong> {p.por}</p>
+          <a class="log-btn" href={p.href} target="_blank" rel="noopener">Abrirlo</a>
+        </div>
+      </article>
+    ))}
+
+    <section class="log-linea">
+      <h2>La semana en que pasó casi todo</h2>
+      <ol>
+        {LINEA.map(([f, t]) => (<li><span class="log-f">{f}</span><span>{t}</span></li>))}
+      </ol>
+    </section>
+
+    <section class="log-extra">
+      <h2>Lo que no se ve en la foto</h2>
+      <p>Detrás de cada proyecto hay pruebas automáticas que avisan si algo se rompe, decisiones de arquitectura escritas para que cualquiera entienda el porqué, y un mantenimiento que corre solo cada semana. Nada de eso se presume en una captura, pero es lo que hace que el trabajo dure.</p>
+    </section>
+
+    <footer class="log-cierre">
+      <p>Si quieres ver el detalle técnico: <a href="/">mi portafolio</a>.<br />Si tienes un negocio y quieres algo así: <a href="/servicios/">la carta de servicios</a>.</p>
+      <p class="log-firma">Julián Juárez Alvarado · UNT Tecnologías Computacionales Cancún</p>
+    </footer>
+  </main>
+</Base>
