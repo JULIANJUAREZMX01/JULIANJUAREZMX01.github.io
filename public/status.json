@@ -1,1 +1,25 @@
-{}
+{
+  "checked_at": "2026-11-02T22:58:33.800Z",
+  "sitios": {
+    "cantabria": {
+      "url": "https://julianjuarezmx01.github.io/cantabria-pms-demo/",
+      "http": 200,
+      "vivo": true
+    },
+    "kalpixk": {
+      "url": "https://julianjuarezmx01.github.io/Wasm-Kalpixk_IA_DevOps/",
+      "http": 200,
+      "vivo": true
+    },
+    "muevecancun": {
+      "url": "https://mueve-cancun-sigma.vercel.app/",
+      "http": 200,
+      "vivo": true
+    },
+    "portafolio": {
+      "url": "https://julianjuarezmx01.github.io/",
+      "http": 200,
+      "vivo": true
+    }
+  }
+}
