@@ -33,3 +33,10 @@
 
 ## Registro
 - 2026-10-28 · Nace el portafolio estático (ADR-001): Astro + Pages, motion GSAP, status semanal, CI y gobernanza. Métricas de referencia: 0 servidores, 0 costo recurrente.
+
+## 2026-03-nov · Estándar AEI aplicado + build de MueveCancun arreglado
+
+- **MueveCancun:** build roto por astro 7.2.8 (entrada SSR). Revertido en `cedcc42`; build local verde (4.7 s). ADR-014 en ese repo.
+- **Cantabria:** auditado el bundle público (sin token ni PIN, modo demo). Gate nuevo en `pages.yml` (commit `578f7fe`).
+- **Portafolio:** `docs/ARQUITECTURA.md` (copia canónica del estándar) y ADR-006.
+- **Pendiente:** decisión de Supabase/Neon, Pages vs Netlify, organización de la 2.ª cuenta, Worker vs Render, dominio propio.
