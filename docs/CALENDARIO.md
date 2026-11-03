@@ -67,3 +67,11 @@
 - La llave del entorno está scoped a ese proyecto: no puede listar, solo operar dentro
 - Conexión directa imposible desde el sandbox (sin salida a 5432) → toda escritura va por función de borde
 - ADR-018 documenta el hallazgo y retira Supabase como candidato
+
+## 3 nov 2026 (cierre) — operación Jules por pilares
+- ADR-019: límites medidos de Jules (3 sesiones simultáneas, 15/día, knowledge sin API, AUTO_CREATE_PR funciona)
+- Despachador `scripts/jules_cola.py`: consulta cupo real antes de enviar, máximo una sesión por repo
+- Inventario de 8 servicios conectados: 4 funcionan (Context7, Render, v0, Stitch), 4 fallan (Linear, Tinybird, Supabase, Neon)
+- Política: v0 y Stitch se desconectan por ser visuales; Jules se limita a backend
+- PR #47 de KYNYKOS (inyección de comandos) quedó mergeado: shlex.split + shell=False + 10 pruebas nuevas
+- Kalpixk: 1,278 ejecuciones históricas, 84% verdes en las últimas 100, 10 PRs abiertos de Sentinel sin mergear
