@@ -85,3 +85,25 @@ Reglas:
 - No instala dependencias nuevas sin justificar en el ADR del repo.
 - No cambia precios, textos legales ni promesas de curación (Sanaciones) sin revisión humana.
 - No toca `ja-vault` ni datos personales de huéspedes y pacientes.
+
+## Contrato de contexto por repositorio (v2, 3 nov 2026)
+
+Jules y cualquier agente leen **el `AGENTS.md` de la raíz**. La "knowledge" de la interfaz de Jules no tiene API: es carga manual. Por eso el contexto vive en el repo, versionado, y no en una consola.
+
+Cada `AGENTS.md` de los 11 repositorios tiene ocho secciones obligatorias:
+
+1. **Qué es el proyecto y para quién** — producto, usuarios reales, estado.
+2. **Cómo está construido** — lenguaje, rama por defecto, estructura de primer nivel y **trampas conocidas**: lo que más tiempo cuesta y no es obvio leyendo el código.
+3. **Método de trabajo** — plan antes de tocar código, un propósito por PR, máximo 8 archivos y 300 líneas, reversibilidad, verificar antes de declarar terminado, revertir si falla, dejar memoria, nunca mergear.
+4. **Prohibiciones duras** — secretos, datos de personas, dependencias nuevas, subidas de versión mayor, refactors masivos, tocar la CI para que pase, merge o force push.
+5. **Verificación y definición de terminado** — comandos reales por repositorio y las cinco condiciones para decir "terminado".
+6. **Glosario del dominio** — las palabras que significan algo distinto en cada proyecto (stay, extra, transbordo, bitácora, autodiagnóstico…).
+7. **Dónde está el resto del contexto** — memoria, ADR, cola.
+8. **Cómo pedir ayuda** — si el plan no cabe en las reglas, PR en borrador y decisión para Julián.
+
+### Reglas que aplican a todos los repositorios
+
+- Una sola persona activa por repo (sentinel, palette, bolt, speedy).
+- Nada de merge automático: el PR se abre y decide Julián.
+- Si un comando falla por el entorno y no por el cambio, se declara, no se silencia.
+- El contexto de negocio se actualiza cuando cambia el producto; un `AGENTS.md` desactualizado es peor que ninguno.
