@@ -61,3 +61,9 @@
 - Nuevo tablero: `docs/AGENDA-AUTOMATIZACION.md` con presupuesto real, inventario, integraciones pendientes y calendario hasta el corte de Jules (11-nov)
 - PR #13 de KYNYKOS cerrado por obsoleto: el import ya no existía en main
 - Despachada la corrección de inyección de comandos (sesión 9369864233431951671)
+
+## 3 nov 2026 (noche) — Neon existe y el límite es de red
+- El proyecto Neon **ya existía**: `muevecancun`, creado 29-mar-2026, PG 17, rama `production`
+- La llave del entorno está scoped a ese proyecto: no puede listar, solo operar dentro
+- Conexión directa imposible desde el sandbox (sin salida a 5432) → toda escritura va por función de borde
+- ADR-018 documenta el hallazgo y retira Supabase como candidato
