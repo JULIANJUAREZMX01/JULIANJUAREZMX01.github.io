@@ -46,3 +46,11 @@
 - Credenciales de Cantabria rotadas y guardadas cifradas en ja-vault (GPG AES-256)
 - ADR-015 Neon Postgres · ADR-016 cola multi-repo
 - Pendiente: reemplazar token y PINs en GitHub Secrets (requiere clic del dueño) y en la función cantabriaWrite
+
+## 3 nov 2026 — sistema agéntico multi-repositorio (ADR-017)
+- Kit desplegado en 12 repos: AGENTS.md, CLAUDE.md, GEMINI.md, docs/agentes/MEMORIA.md, ADR y 2 workflows
+- Turno de agente probado de punta a punta: guardia anti-avalancha ✓, issue de turno generado ✓
+- Documento canónico del sistema: `docs/AGENTES.md`
+- Personas asignadas: sentinel (5 repos), palette (2), bolt (1), speedy (2)
+- Pendiente prioritario: triaje de los 108 PRs abiertos en trs-cmu-c2-bares (cierre masivo con criterio)
+- Próximo turno automático: lunes 09:00 America/Cancun
