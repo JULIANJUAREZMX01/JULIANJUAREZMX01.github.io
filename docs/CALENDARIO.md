@@ -40,3 +40,9 @@
 - **Cantabria:** auditado el bundle público (sin token ni PIN, modo demo). Gate nuevo en `pages.yml` (commit `578f7fe`).
 - **Portafolio:** `docs/ARQUITECTURA.md` (copia canónica del estándar) y ADR-006.
 - **Pendiente:** decisión de Supabase/Neon, Pages vs Netlify, organización de la 2.ª cuenta, Worker vs Render, dominio propio.
+
+## 3 nov 2026 — arquitectura y seguridad
+- Cola multi-repositorio DACC operativa (scripts/cola.py, docs/COLA.md): 33 repos, 48 pendientes, tope 3/día
+- Credenciales de Cantabria rotadas y guardadas cifradas en ja-vault (GPG AES-256)
+- ADR-015 Neon Postgres · ADR-016 cola multi-repo
+- Pendiente: reemplazar token y PINs en GitHub Secrets (requiere clic del dueño) y en la función cantabriaWrite
