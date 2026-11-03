@@ -1,42 +1,90 @@
-# AGENTS.md — JULIANJUAREZMX01.github.io
+# AGENTS.md — Portafolio JAJA.DEV / UNT
 
-> Reglas para cualquier agente de IA que trabaje en este repositorio (Jules, Claude, Copilot, Gemini, Codex, Antigravity).
-> Fuente única: este archivo. Los demás (`CLAUDE.md`, `GEMINI.md`, `.cursorrules`) solo apuntan aquí.
+> Fuente única de verdad para cualquier agente de IA en este repositorio (Jules, Claude Code, Copilot, Gemini, Codex, Antigravity, KynicOS).
 > Dueño: Julián Juárez (@JAJA.DEV) · Marca de servicios: UNT Tecnologías Computacionales Cancún.
+> Última revisión: 3 de noviembre de 2026.
 
-## 1. Qué es este repo
-- **Perfil:** Portafolio JAJA.DEV, carta de servicios UNT, archivo técnico, logros. Cero servidores.
-- **Stack:** Astro estático, GSAP/Lenis, GitHub Pages
-- **Comandos verificados:**
-  - `npm ci`
-  - `npm run check`
-  - `npm run build`
+## 1. Qué es este proyecto y para quién
 
-## 2. Misión de los agentes aquí
-El portafolio **no puede depender de servicios de pago**. Separar siempre hecho verificado de inferencia en `/archivo/`. Nunca publicar CURP, RFC ni claves oficiales. Cola multi-repo en `scripts/cola.py`.
+**Producto.** Sitio público que presenta el trabajo de Julián y la marca UNT Tecnologías Computacionales Cancún: servicios, evidencia y casos. Es la carta de presentación comercial y el escaparate técnico.
 
-## 3. Reglas inquebrantables (Ley Kynikos)
-1. **Un cambio, una intención.** Un PR hace una sola cosa y se explica en una frase.
-2. **Nada de PRs duplicados.** Antes de abrir uno, lista los PRs abiertos (`gh pr list`) y busca el tema. Si ya existe, comenta ahí en vez de abrir otro.
-3. **Máximo 1 PR abierto por agente a la vez.** Si hay uno sin revisar, no abras otro.
-4. **Sin secretos en código ni en logs.** Variables de entorno solo desde `.env.example` documentado; nunca valores reales.
-5. **No toques** `package.json`, `tsconfig.json`, lockfiles ni CI sin instrucción explícita.
-6. **Medir antes de optimizar.** Una optimización sin medición previa se rechaza.
-7. **Pruebas verdes o no hay PR.** Si una prueba falla, revierte y explica.
-8. **Humano decide.** Los agentes proponen; Julián aprueba. Nunca hagas merge a `main` por tu cuenta.
-9. **Sin dependencias nuevas** sin pedir permiso en el PR.
-10. **Honestidad:** separa hecho verificado de suposición. Si no sabes, dilo.
+**Usuarios.** Clientes potenciales, reclutadores y colegas.
 
-## 4. Memoria compartida (obligatoria)
-Antes de empezar lee `docs/agentes/MEMORIA.md`. Al terminar, agrega UNA entrada con: fecha, qué aprendiste, qué evitar. No dupliques entradas existentes. Esto reemplaza la memoria propia de cada herramienta, que puede desaparecer.
+**Estado.** Vivo en GitHub Pages, estático, sin servidores ni servicios de pago.
 
-## 5. Documentación
-- Toda decisión no trivial va como ADR en `docs/adr/` (Contexto / Decisión / Consecuencias).
-- Los cambios de rutina se registran en `docs/CALENDARIO.md` si existe.
+**Persona asignada.** palette · experiencia y accesibilidad.
 
-## 6. Tono
-Español claro y directo en PRs, commits y comentarios. Commits atómicos con prefijo (`fix:`, `feat:`, `docs:`, `perf:`, `sec:`). Sin relleno, sin exageración.
+## 2. Cómo está construido
 
-## 7. Personas (turnos)
-- **Palette** (semanal): microdetalles de UX.
-- **Cola DACC** (diario 09:00): prioriza máximo 3 unidades.
+- **Lenguaje principal:** Astro
+- **Rama por defecto:** `main`
+- **Estructura de primer nivel:** `.github`, `.github/workflows`, `docs`, `docs/adr`, `docs/agentes`, `public`, `public/evidencia`, `public/qr`, `scripts`, `src`
+
+Astro estático con GSAP/Lenis, contenido en `src/data/`, scripts de validación en `scripts/`, `public/status.json` generado por workflow semanal.
+
+### Trampas conocidas (esto es lo que más tiempo cuesta)
+
+- El build usa `astro check` y falla por un solo error de tipos: no dejes tipos sueltos.
+- Todo dato publicado debe ser verificable; el sitio separa hecho, autodeclarado y no verificado.
+- Nada de dependencias de pago ni servicios externos: el sitio debe seguir funcionando sin facturas.
+
+## 3. Método de trabajo (obligatorio)
+
+1. **Plan primero.** Antes de tocar código, escribe el plan en 3 a 6 puntos y espera aprobación. Sin plan no hay cambio.
+2. **Un cambio, un propósito.** Un PR resuelve una cosa. Si descubres otra, se anota en `docs/agentes/MEMORIA.md` y se atiende después.
+3. **Radio de explosión pequeño.** Máximo 8 archivos y 300 líneas por PR. Si el cambio es mayor, se parte.
+4. **Reversibilidad.** Todo cambio debe poder revertirse con un `git revert` limpio. No reescribas historia ni fuerces push.
+5. **Verifica antes de decir que terminaste.** Ejecuta los comandos de la sección 5 y pega el resultado real. "Debería funcionar" no es un resultado.
+6. **Si algo falla, revierte.** No dejes el repo en rojo intentando arreglarlo a ciegas.
+7. **Deja memoria.** Cada cambio añade una entrada a `docs/agentes/MEMORIA.md`: fecha, qué se cambió, por qué, cómo se verificó.
+8. **Nunca mergees.** Abres el PR y lo enlazas. Julián decide.
+
+## 4. Prohibiciones duras
+
+- **Secretos**: nunca escribas tokens, llaves, PINs, contraseñas ni cadenas de conexión en el código, en commits, en logs ni en el texto del PR. Si encuentras uno expuesto, no lo copies: avísalo en el PR como riesgo.
+- **Datos de personas**: nada de nombres, teléfonos, correos, CURP, RFC o datos de huéspedes/clientes en código, pruebas o fixtures. Usa datos inventados con etiqueta clara.
+- **Dependencias nuevas**: no añadas librerías sin justificarlo y sin aprobación explícita. Prefiere la biblioteca estándar.
+- **Subidas de versión mayores**: no actualices el framework principal ni cambies de versión mayor de Node/Python por iniciativa propia; rompe despliegues.
+- **Refactors masivos**: nada de renombrar directorios, mover archivos o reformatear todo el repo de golpe.
+- **Tocar la CI para "que pase"**: no desactives pruebas, no pongas `continue-on-error` ni borres pasos de los workflows para salir del rojo.
+- **Merge, force push, borrar ramas ajenas, tocar `main` directamente.**
+
+- No publiques datos personales, CURP, RFC ni teléfonos privados.
+- No inventes métricas, clientes ni testimonios.
+
+## 5. Verificación y definición de terminado
+
+**Comandos de verificación** (desde la raíz, en este orden):
+
+```bash
+npm ci
+npm run check
+npm run build
+```
+
+Si un comando falla por el entorno y no por tu cambio, dilo en el PR en vez de silenciarlo.
+
+Un cambio está terminado cuando, y solo cuando:
+
+- Los comandos de verificación corren sin error y pegaste su salida real.
+- No añadiste configuración ni credenciales nuevas.
+- Actualizaste `docs/agentes/MEMORIA.md`.
+- El PR explica qué cambia, por qué, cómo se probó y qué podría romperse.
+- Si tocaste algo visible al usuario, describiste cómo comprobarlo a mano.
+
+## 6. Glosario del dominio
+
+- **DACC**: Método propio: decidir, archivar, construir, cerrar.
+- **evidencia**: Captura o registro verificable de un logro.
+- **status.json**: Estado de disponibilidad de los sitios, generado automáticamente.
+
+## 7. Dónde está el resto del contexto
+
+- `docs/agentes/MEMORIA.md` — bitácora de cambios y aprendizajes.
+- `docs/adr/` — decisiones de arquitectura con su motivo.
+- `docs/COLA.md` (en el portafolio) — qué está en turno y qué espera.
+- `docs/AGENTES.md` (en el portafolio) — reglas comunes a todos los repositorios.
+
+## 8. Cómo pedir ayuda
+
+Si el plan no cabe en las reglas anteriores, no improvises: deja el PR en borrador explicando el bloqueo y qué decisión necesitas de Julián.
