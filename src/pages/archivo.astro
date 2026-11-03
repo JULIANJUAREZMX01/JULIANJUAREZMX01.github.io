@@ -1,0 +1,98 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const CUENTAS = [
+  { u: 'JULIANJUAREZMX01', rol: 'Identidad personal y firmante', d: '22 repos públicos · 7 privados', href: 'https://github.com/JULIANJUAREZMX01' },
+  { u: 'sistemascancunjefe-ai', rol: 'Marca: JAJA DEV', d: '11 repos públicos', href: 'https://github.com/sistemascancunjefe-ai' },
+  { u: 'alexander24kx-cloud', rol: 'Cuenta de trabajo', d: 'Commits y revisiones en MueveCancun', href: 'https://github.com/alexander24kx-cloud' },
+];
+
+const MEDIDO = [
+  ['MueveCancun', '1,838 commits en main · Astro + Rust/WASM', 'MueveCancun'],
+  ['Cantabria PMS', '384 commits · Astro + Base44 + 5 idiomas', 'cantabria-pms-demo'],
+  ['Kalpixk SIEM', '385 commits · Python + Rust/WASM', 'Wasm-Kalpixk_IA_DevOps'],
+  ['SAC', 'Backend Python, privado', 'SAC'],
+  ['SAC_OS', 'Privado · 20 MB · 9 commits · creado 24-nov-2025', 'SAC_OS'],
+];
+
+const PRIVADOS = ['C2-PALLADIUM', 'cancunmueve', 'mdtranslator-copy', 'palladium-c2', 'SAC', 'SAC_OS', 'trs-cmu-c2-bares'];
+
+const ALIAS = ['lian', 'admjaja', 'lían Juárez', 'MEDICENLIAN'];
+
+const CRONO = [
+  ['1928', 'Se funda el Hotel Cantabria en Tulancingo. La digitalización llega 98 años después.', 'contexto'],
+  ['24-nov-2025', 'Nace SAC_OS, el repositorio privado que concentra el sistema de automatización de CEDIS.', 'H'],
+  ['2026', 'MueveCancún se convierte en el proyecto más trabajado: 1,838 commits y motor de rutas en Rust/WASM.', 'H'],
+  ['26-abr-2026', 'Último push a SAC_OS antes del cambio de ciclo.', 'H'],
+  ['24-oct-2026', 'Arranca la digitalización del Hotel Cantabria: PMS, landing en cinco idiomas y ocho códigos QR.', 'H'],
+  ['28-oct-2026', 'El portafolio sale de Render y pasa a GitHub Pages: estático, sin servidores, con ADR y calendario vivo.', 'H'],
+  ['29-oct-2026', 'Nace la Carta de Servicios de UNT y el gatillo QR con página de decisión.', 'H'],
+  ['1-nov-2026', 'Se publica el sitio de Sanaciones Cuánticas Energéticas y su video promocional.', 'H'],
+  ['3-nov-2026', 'Se adopta el Estándar de arquitectura AEI y se corrige el build roto de MueveCancun.', 'H'],
+];
+---
+<Base title="Archivo técnico · Julián Juárez / jaja.dev" description="Archivo verificable de identidades digitales, repositorios y proyectos de Julián Juárez Alvarado. Solo hechos documentados, sin datos sensibles.">
+  <main class="wrap">
+    <section class="bloque">
+      <p class="kicker">Archivo técnico · estado al 3 de noviembre de 2026</p>
+      <h1>Julián Juárez Alvarado<br /><span class="apagado">jaja.dev</span></h1>
+      <p class="intro">Este archivo reúne lo que se puede probar sobre mi trabajo: cuentas, repositorios, líneas de código y fechas. Está escrito con tres etiquetas y sin adornos. Lo que no se puede probar, se dice que no se puede probar.</p>
+      <p class="aviso-archivo"><b>Método:</b> <span class="et h">H</span> hecho verificado contra la fuente · <span class="et d">D</span> declarado por el autor, sin verificación independiente · <span class="et nv">NV</span> no verificado o no consultado.</p>
+
+      <h2>Cuentas</h2>
+      <div class="tabla">
+        {CUENTAS.map((c) => (
+          <div class="fila-arch">
+            <a href={c.href} target="_blank" rel="noopener"><b>{c.u}</b></a>
+            <span>{c.rol}</span>
+            <span class="mono">{c.d}</span>
+          </div>
+        ))}
+      </div>
+      <p class="nota-arch">Las tres cuentas pertenecen al autor, confirmado por él. Un enlace de LinkedIn compartido no prueba identidad civil: la prueba es su declaración directa y el cruce de commits. <span class="et h">H</span></p>
+
+      <h2>Repositorios medidos</h2>
+      <div class="tabla">
+        {MEDIDO.map(([n, d, repo]) => (
+          <div class="fila-arch">
+            <a href={`https://github.com/JULIANJUAREZMX01/${repo}`} target="_blank" rel="noopener"><b>{n}</b></a>
+            <span class="mono">{d}</span>
+          </div>
+        ))}
+      </div>
+      <p class="nota-arch">Conteos obtenidos de la API de GitHub el 3 de noviembre de 2026 vía cabecera de paginación sobre <code>main</code>. <span class="et h">H</span></p>
+
+      <h2>Siete repositorios privados</h2>
+      <p class="intro-chico">Se listan por nombre porque el autor lo autorizó. Su contenido no se publica ni se describe: son sistemas de clientes y operación interna.</p>
+      <p class="tags">{PRIVADOS.map((p) => <span class="tag">{p}</span>)}</p>
+
+      <h2>Alias autodeclarados</h2>
+      <p class="tags">{ALIAS.map((a) => <span class="tag">{a}</span>)}</p>
+      <p class="nota-arch">El autor declara que estos alias le corresponden. No hay fuente independiente que los vincule, así que se registran como declaración, no como hecho. <span class="et d">D</span></p>
+
+      <h2>Cronología</h2>
+      <div class="crono">
+        {CRONO.map(([f, t, tag]) => (
+          <div class="crono-fila">
+            <span class="mono crono-fecha">{f}</span>
+            <span>{t} {tag === 'H' && <span class="et h">H</span>}</span>
+          </div>
+        ))}
+      </div>
+
+      <h2>Lo que este archivo no hace</h2>
+      <div class="panel">
+        <p>No publica CURP, RFC, claves oficiales ni domicilios. No cruza homónimos de otros estados o países: existen registros de personas con el mismo nombre que no tienen vínculo probado con estas cuentas. No infiere rasgos psicológicos de fotografías, redes o código. No afirma autoría sobre materiales de origen desconocido.</p>
+        <p>Un archivo que promete más de lo que puede probar no es un archivo: es publicidad.</p>
+      </div>
+
+      <h2>Cómo citar</h2>
+      <p class="cita">Juárez, Julián / jaja.dev. «Archivo técnico: cuentas, repositorios y proyectos». Estado documentado al 3 de noviembre de 2026. Fuente: API de GitHub y declaraciones del autor.</p>
+
+      <p class="cta-row">
+        <a class="btn" href="https://github.com/JULIANJUAREZMX01" target="_blank" rel="noopener">Ver GitHub</a>
+        <a class="btn" href="/">Volver al portafolio</a>
+      </p>
+    </section>
+  </main>
+</Base>
