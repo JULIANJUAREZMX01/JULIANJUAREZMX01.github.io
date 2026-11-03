@@ -23,3 +23,11 @@ Repos activos inventariados: **33** · unidades en cola: **48** · tope diario: 
 - JULIANJUAREZMX01/MueveCancun #566 · Add Functional Reality Gates: local route map, telemetry improvements, (144 d)
 - JULIANJUAREZMX01/MueveCancun #571 · build(deps): bump sharp from 0.34.5 to 0.35.1 (141 d)
 - JULIANJUAREZMX01/MueveCancun #570 · build(deps): bump fuse.js from 7.3.0 to 7.4.2 (141 d)
+
+## Despacho a Jules
+
+| Fecha | Repo | Sesión | Objetivo | Estado |
+|---|---|---|---|---|
+| 2026-11-03 | KYNYKOS_AI_Agent | sessions/10442019894751081557 | Limpieza reversible de imports sin usar (PR #13) | En cola de Jules |
+
+Criterio: la primera sesión se eligió deliberadamente pequeña y reversible para observar el comportamiento de Jules antes de soltarlo sobre los PRs de seguridad #12 y #16.
