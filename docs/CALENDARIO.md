@@ -54,3 +54,10 @@
 - Personas asignadas: sentinel (5 repos), palette (2), bolt (1), speedy (2)
 - Pendiente prioritario: triaje de los 108 PRs abiertos en trs-cmu-c2-bares (cierre masivo con criterio)
 - Próximo turno automático: lunes 09:00 America/Cancun
+
+## 3 nov 2026 (tarde) — presupuesto y agenda
+- Apagado el monitor de MueveCancún: 2 turnos/día gastados desde abril repitiendo un 503 por facturación
+- Cola multi-repositorio limitada a lunes-viernes (antes corría los 7 días)
+- Nuevo tablero: `docs/AGENDA-AUTOMATIZACION.md` con presupuesto real, inventario, integraciones pendientes y calendario hasta el corte de Jules (11-nov)
+- PR #13 de KYNYKOS cerrado por obsoleto: el import ya no existía en main
+- Despachada la corrección de inyección de comandos (sesión 9369864233431951671)
