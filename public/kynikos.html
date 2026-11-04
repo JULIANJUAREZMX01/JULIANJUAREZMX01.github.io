@@ -41,53 +41,45 @@
 <section>
   <h2>Antes de empezar</h2>
   <div class="card">
-    <table>
-      <tr><th>Qué</th><th>Dónde se consigue</th></tr>
-      <tr><td>Token del bot</td><td>@BotFather → <code>/mybots</code> → kynicOS_robot → API Token</td></tr>
-      <tr><td>Palabra del primer paso</td><td>La inventas tú. No la escribas en ningún chat.</td></tr>
-      <tr><td>Tu ID de Telegram</td><td><code>8247886073</code>, ya viene configurado</td></tr>
-    </table>
-    <p class="nota" style="margin-bottom:0">Requisitos: Windows 10 u 11, 8 GB de RAM (16 ideal), 6 GB libres.</p>
+    <p style="margin:0 0 8px"><b>Ten a mano dos datos:</b> el token de @BotFather (<code>/mybots</code> &rarr; kynicOS_robot &rarr; API Token) y una palabra secreta que inventes. El script te las pedirá en el bloque 2.</p>
+    <p class="nota" style="margin:0">Windows 10 u 11, 8 GB de RAM (16 ideal), 6 GB libres. Sin administrador y sin costo.</p>
   </div>
 </section>
 
 <section>
-  <h2>Todo en un bloque</h2>
-  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents
-git clone https://github.com/JULIANJUAREZMX01/KynicOS.git
-cd KynicOS
-.\nodo\arranque-todo-en-uno.ps1</pre></div>
-  <p class="nota">Hace los cinco pasos: Git, repositorio, instalador, revisión de configuración y comprobación del bot. Si falta un valor en el <code>.env</code>, se detiene y te dice cuál.</p>
-</section>
-
-<section>
-  <h2>Paso por paso, si prefieres verlo</h2>
-
-  <p class="nota"><b>1. Git.</b> Si dice que no se reconoce el comando, instálalo y reabre la terminal.</p>
-  <div class="bloque"><button class="copiar">copiar</button><pre>git --version
-winget install --id Git.Git -e --source winget</pre></div>
-
-  <p class="nota"><b>2. Repositorio.</b> Queda en Documentos\KynicOS.</p>
+  <h2>Bloque 1 · Traer el repositorio</h2>
   <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents
 git clone https://github.com/JULIANJUAREZMX01/KynicOS.git
 cd KynicOS</pre></div>
-
-  <p class="nota"><b>3. Instalador.</b> Instala Python y Ollama si faltan, descarga el modelo (4.7 GB, una sola vez) y crea el <code>.env</code> pidiéndote el token sin mostrarlo.</p>
-  <div class="bloque"><button class="copiar">copiar</button><pre>.\nodo\instalar.ps1</pre></div>
-
-  <p class="nota"><b>Si Windows bloquea el script</b> por política de ejecución, se relaja solo para esa ventana:</p>
-  <div class="bloque"><button class="copiar">copiar</button><pre>Set-ExecutionPolicy -Scope Process -Bypass -Force
-.\nodo\instalar.ps1</pre></div>
-
-  <p class="nota"><b>4. Arrancar.</b> La ventana se queda ocupada: mientras esté abierta, el bot está vivo.</p>
-  <div class="bloque"><button class="copiar">copiar</button><pre>.\.venv\Scripts\python.exe cli\kynikos.py run</pre></div>
-
-  <p class="nota"><b>5. Diagnóstico</b> desde otra terminal, con el nodo corriendo:</p>
-  <div class="bloque"><button class="copiar">copiar</button><pre>.\.venv\Scripts\python.exe cli\kynikos.py doctor
-.\.venv\Scripts\python.exe cli\kynikos.py telegram
-.\.venv\Scripts\python.exe cli\kynikos.py doble-paso estado</pre></div>
+  <p class="nota">Debe aparecer un mensaje de clonación y nada en rojo. Si <code>git</code> no se reconoce: <code>winget install --id Git.Git -e --source winget</code>, cierra la ventana, abre otra y repite.</p>
 </section>
 
+<section>
+  <h2>Bloque 2 · Instalar, arrancar y validar</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents\KynicOS
+Set-ExecutionPolicy -Scope Process -Bypass -Force
+.\nodo\arrancar-y-validar.ps1</pre></div>
+  <div class="card bien">
+    <p style="margin:0 0 6px"><b>Debe terminar así:</b></p>
+    <pre>OK   VALIDADO: el nodo está escuchando a Telegram.</pre>
+    <p class="nota" style="margin-bottom:0">No es un adorno: consulta la API de Telegram y espera el error de conflicto, que solo ocurre si el nodo ocupa el canal. Si no lo recibe, dice <code>FALLO</code>.</p>
+  </div>
+  <div class="card">
+    <table>
+      <tr><th>Si se detiene diciendo</th><th>Qué hacer</th></tr>
+      <tr><td><code>Falta: git</code> / <code>python</code> / <code>ollama</code></td><td>Corre el <code>winget install</code> que te muestra, cierra la ventana, abre otra y repite</td></tr>
+      <tr><td><code>El proceso murió al arrancar</code></td><td>El script imprime el error real debajo</td></tr>
+      <tr><td><code>Telegram no reporta que alguien escuche</code></td><td>El token del <code>.env</code> no es el de @kynicOS_robot. Corrige con <code>notepad .env</code></td></tr>
+    </table>
+  </div>
+  <p class="nota">El token no se muestra al pegarlo: es normal, pégalo con clic derecho y Enter. Tarda por la descarga del modelo (4.7 GB).</p>
+</section>
+
+<section>
+  <h2>Bloque 3 · Probar en Telegram</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>/estado</pre></div>
+  <p class="nota">Escríbelo en <b>@kynicOS_robot</b>. Si contesta, el nodo está operativo. Después: una frase normal (debe responder) y tu palabra secreta (debe llegar <b>una sola</b> notificación con Autorizar y Rechazar).</p>
+</section>
 <section>
   <h2>Qué significa cada variable del .env</h2>
   <div class="card">
@@ -108,12 +100,15 @@ cd KynicOS</pre></div>
 </section>
 
 <section>
-  <h2>Dejarlo arrancando solo</h2>
-  <div class="bloque"><button class="copiar">copiar</button><pre>$repo = "$HOME\Documents\KynicOS"
-$accion = New-ScheduledTaskAction -Execute "$repo\.venv\Scripts\python.exe" -Argument "cli\kynikos.py run" -WorkingDirectory $repo
-$disparo = New-ScheduledTaskTrigger -AtLogOn
-Register-ScheduledTask -TaskName "KYNIKOS nodo" -Action $accion -Trigger $disparo -Force
-Start-ScheduledTask -TaskName "KYNIKOS nodo"</pre></div>
+  <h2>Bloque 4 · Que arranque solo (opcional)</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents\KynicOS
+.\nodo\registrar-tarea.ps1</pre></div>
+  <p class="nota">Solo después de que el bloque 3 conteste. Comprueba que el proceso esté vivo; no se fía del estado <code>Ready</code> de Windows, que solo significa "registrada".</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre># detener el nodo
+Stop-Process -Id (Get-Content $HOME\Documents\KynicOS\.kynikos\nodo.pid)
+
+# quitarlo del arranque automático
+Unregister-ScheduledTask -TaskName "KYNIKOS nodo" -Confirm:$false</pre></div>
 </section>
 
 <section>
@@ -146,7 +141,7 @@ Start-ScheduledTask -TaskName "KYNIKOS nodo"</pre></div>
 </section>
 
 <section>
-  <h2>Actualizar (solo después de instalar)</h2>
+  <h2>Actualizar el código</h2>
   <div class="card alerta"><p style="margin:0"><b>No lo corras antes de haber instalado.</b> Si lo haces verás <code>ObjectNotFound: .\.venv\Scripts\python.exe</code>: significa que todavía no existe el entorno de Python y que falta ejecutar el instalador completo.</p></div>
   <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents\KynicOS
 git pull
