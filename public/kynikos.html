@@ -123,6 +123,7 @@ Start-ScheduledTask -TaskName "KYNIKOS nodo"</pre></div>
       <tr><th>Síntoma</th><th>Arreglo</th></tr>
       <tr><td><code>git</code>, <code>python</code> u <code>ollama</code> no se reconocen</td><td>Se instalaron con la terminal abierta: ciérrala, abre una nueva</td></tr>
       <tr><td>El script no corre por directivas</td><td><code>Set-ExecutionPolicy -Scope Process -Bypass -Force</code></td></tr>
+      <tr><td><code>ObjectNotFound: .\.venv\Scripts\python.exe</code></td><td>El entorno aún no existe: ejecuta <code>.\nodo\instalar.ps1</code> completo antes que nada</td></tr>
       <tr><td>Recibe pero no contesta</td><td>El nodo no está corriendo: paso 4, con la ventana abierta</td></tr>
       <tr><td><code>401</code> o <code>Unauthorized</code></td><td>Token mal copiado: sin comillas ni espacios, edita <code>.env</code></td></tr>
       <tr><td>Respuestas lentas</td><td>Usa 7B. El 14B baja a ~3 tokens por segundo en este equipo</td></tr>
@@ -145,7 +146,8 @@ Start-ScheduledTask -TaskName "KYNIKOS nodo"</pre></div>
 </section>
 
 <section>
-  <h2>Actualizar</h2>
+  <h2>Actualizar (solo después de instalar)</h2>
+  <div class="card alerta"><p style="margin:0"><b>No lo corras antes de haber instalado.</b> Si lo haces verás <code>ObjectNotFound: .\.venv\Scripts\python.exe</code>: significa que todavía no existe el entorno de Python y que falta ejecutar el instalador completo.</p></div>
   <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents\KynicOS
 git pull
 .\.venv\Scripts\python.exe -m pip install -q -r requirements-bot.txt</pre></div>
