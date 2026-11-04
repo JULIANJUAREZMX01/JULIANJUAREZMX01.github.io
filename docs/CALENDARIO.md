@@ -75,3 +75,8 @@
 - Política: v0 y Stitch se desconectan por ser visuales; Jules se limita a backend
 - PR #47 de KYNYKOS (inyección de comandos) quedó mergeado: shlex.split + shell=False + 10 pruebas nuevas
 - Kalpixk: 1,278 ejecuciones históricas, 84% verdes en las últimas 100, 10 PRs abiertos de Sentinel sin mergear
+
+## 3 nov 2026 (noche) — página operativa de la bóveda
+- Publicada en /boveda.html con comandos para PowerShell y CMD (ADR-024)
+- Verificado: HTTP 200, catorce bloques copiables, sin valores de credencial
+- Corregido: el CDN de la plataforma caducó el enlace; GitHub Pages no caduca
