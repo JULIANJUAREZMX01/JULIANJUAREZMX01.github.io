@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KYNIKOS · arranque en Windows</title>
+<style>
+  :root { --bg:#0b0f0e; --panel:#111817; --line:#1d2a27; --text:#e6efec; --dim:#8fa39d; --accent:#c9a227; --ok:#3fb27f; --bad:#d9534f; --warn:#e0a33e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+  header { padding:18px 16px; border-bottom:1px solid var(--line); }
+  header h1 { margin:0 0 4px; font-size:19px; color:var(--accent); letter-spacing:.4px; }
+  header p { margin:0; color:var(--dim); font-size:13px; }
+  main { max-width:900px; margin:0 auto; padding:20px 16px 60px; }
+  section { margin-bottom:28px; }
+  h2 { font-size:13px; text-transform:uppercase; letter-spacing:1.2px; color:var(--dim); margin:0 0 12px; padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
+  .card.alerta { border-left:3px solid var(--bad); }
+  .card.bien { border-left:3px solid var(--ok); }
+  .card.ojo { border-left:3px solid var(--warn); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th, td { text-align:left; padding:7px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--dim); font-weight:normal; text-transform:uppercase; font-size:11px; letter-spacing:.8px; }
+  code { background:#182321; padding:1px 5px; border-radius:4px; color:#d7e6e1; font-size:13px; }
+  .bloque { position:relative; background:#0d1413; border:1px solid var(--line); border-radius:8px; padding:12px; margin:10px 0; }
+  pre { margin:0; white-space:pre-wrap; word-break:break-word; font-size:13px; color:#cfe0db; }
+  .copiar { position:absolute; top:8px; right:8px; padding:4px 10px; font-size:11px; border-radius:6px; border:1px solid var(--line); background:#16201e; color:var(--dim); cursor:pointer; font:inherit; }
+  .copiar:hover { color:var(--accent); }
+  .nota { color:var(--dim); font-size:13px; }
+  ol { margin:8px 0 0; padding-left:22px; }
+  li { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>KYNIKOS · arranque en Windows</h1>
+  <p>Nodo primario en tu PC · sin administrador · sin costo · verificado el 3 de noviembre de 2026</p>
+</header>
+<main>
+
+<section>
+  <h2>Antes de empezar</h2>
+  <div class="card">
+    <table>
+      <tr><th>Qué</th><th>Dónde se consigue</th></tr>
+      <tr><td>Token del bot</td><td>@BotFather → <code>/mybots</code> → kynicOS_robot → API Token</td></tr>
+      <tr><td>Palabra del primer paso</td><td>La inventas tú. No la escribas en ningún chat.</td></tr>
+      <tr><td>Tu ID de Telegram</td><td><code>8247886073</code>, ya viene configurado</td></tr>
+    </table>
+    <p class="nota" style="margin-bottom:0">Requisitos: Windows 10 u 11, 8 GB de RAM (16 ideal), 6 GB libres.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Todo en un bloque</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents
+git clone https://github.com/JULIANJUAREZMX01/KynicOS.git
+cd KynicOS
+.\nodo\arranque-todo-en-uno.ps1</pre></div>
+  <p class="nota">Hace los cinco pasos: Git, repositorio, instalador, revisión de configuración y comprobación del bot. Si falta un valor en el <code>.env</code>, se detiene y te dice cuál.</p>
+</section>
+
+<section>
+  <h2>Paso por paso, si prefieres verlo</h2>
+
+  <p class="nota"><b>1. Git.</b> Si dice que no se reconoce el comando, instálalo y reabre la terminal.</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>git --version
+winget install --id Git.Git -e --source winget</pre></div>
+
+  <p class="nota"><b>2. Repositorio.</b> Queda en Documentos\KynicOS.</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents
+git clone https://github.com/JULIANJUAREZMX01/KynicOS.git
+cd KynicOS</pre></div>
+
+  <p class="nota"><b>3. Instalador.</b> Instala Python y Ollama si faltan, descarga el modelo (4.7 GB, una sola vez) y crea el <code>.env</code> pidiéndote el token sin mostrarlo.</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>.\nodo\instalar.ps1</pre></div>
+
+  <p class="nota"><b>Si Windows bloquea el script</b> por política de ejecución, se relaja solo para esa ventana:</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>Set-ExecutionPolicy -Scope Process -Bypass -Force
+.\nodo\instalar.ps1</pre></div>
+
+  <p class="nota"><b>4. Arrancar.</b> La ventana se queda ocupada: mientras esté abierta, el bot está vivo.</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>.\.venv\Scripts\python.exe cli\kynikos.py run</pre></div>
+
+  <p class="nota"><b>5. Diagnóstico</b> desde otra terminal, con el nodo corriendo:</p>
+  <div class="bloque"><button class="copiar">copiar</button><pre>.\.venv\Scripts\python.exe cli\kynikos.py doctor
+.\.venv\Scripts\python.exe cli\kynikos.py telegram
+.\.venv\Scripts\python.exe cli\kynikos.py doble-paso estado</pre></div>
+</section>
+
+<section>
+  <h2>Qué significa cada variable del .env</h2>
+  <div class="card">
+    <table>
+      <tr><th>Variable</th><th>Para qué sirve</th></tr>
+      <tr><td><code>TELEGRAM_TOKEN</code></td><td>Credencial del bot. Sin ella no hay canal.</td></tr>
+      <tr><td><code>TELEGRAM_USER_ID</code></td><td>Solo ese usuario puede hablarle. Es el candado.</td></tr>
+      <tr><td><code>PERSONA</code></td><td>Tono y reglas con que responde.</td></tr>
+      <tr><td><code>OLLAMA_MODEL</code></td><td>Modelo local. <code>qwen2.5:7b</code> es el que va fluido en CPU.</td></tr>
+      <tr><td><code>OLLAMA_NUM_CTX</code></td><td>Cuánta conversación recuerda a la vez.</td></tr>
+      <tr><td><code>MAX_TOKENS_SALIDA</code></td><td>Tope de largo por respuesta.</td></tr>
+      <tr><td><code>TIMEOUT_LLM</code></td><td>Paciencia en segundos. En CPU hace falta holgura.</td></tr>
+      <tr><td><code>KYNIKOS_PALABRA_1</code></td><td>La palabra que abre el doble paso.</td></tr>
+      <tr><td><code>KYNIKOS_ESTADO_DIR</code></td><td>Dónde guarda el estado del doble paso.</td></tr>
+    </table>
+    <p class="nota" style="margin-bottom:0">Se edita con <code>notepad .env</code>. Nunca se pega en un chat ni se sube a GitHub: ya está en <code>.gitignore</code>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Dejarlo arrancando solo</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>$repo = "$HOME\Documents\KynicOS"
+$accion = New-ScheduledTaskAction -Execute "$repo\.venv\Scripts\python.exe" -Argument "cli\kynikos.py run" -WorkingDirectory $repo
+$disparo = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -TaskName "KYNIKOS nodo" -Action $accion -Trigger $disparo -Force
+Start-ScheduledTask -TaskName "KYNIKOS nodo"</pre></div>
+</section>
+
+<section>
+  <h2>Problemas comunes</h2>
+  <div class="card">
+    <table>
+      <tr><th>Síntoma</th><th>Arreglo</th></tr>
+      <tr><td><code>git</code>, <code>python</code> u <code>ollama</code> no se reconocen</td><td>Se instalaron con la terminal abierta: ciérrala, abre una nueva</td></tr>
+      <tr><td>El script no corre por directivas</td><td><code>Set-ExecutionPolicy -Scope Process -Bypass -Force</code></td></tr>
+      <tr><td>Recibe pero no contesta</td><td>El nodo no está corriendo: paso 4, con la ventana abierta</td></tr>
+      <tr><td><code>401</code> o <code>Unauthorized</code></td><td>Token mal copiado: sin comillas ni espacios, edita <code>.env</code></td></tr>
+      <tr><td>Respuestas lentas</td><td>Usa 7B. El 14B baja a ~3 tokens por segundo en este equipo</td></tr>
+      <tr><td><code>can't use getUpdates with webhook active</code></td><td><code>curl "https://api.telegram.org/bot&lt;TU_TOKEN&gt;/deleteWebhook"</code></td></tr>
+      <tr><td>No llega la notificación del doble paso</td><td>Escribe <code>/start</code> en @kynicOS_robot una vez</td></tr>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Lo que no se hace nunca</h2>
+  <div class="card alerta">
+    <ol style="margin:0">
+      <li>Pegar el token o la palabra del primer paso en un chat, issue o captura.</li>
+      <li>Subir el <code>.env</code> a GitHub.</li>
+      <li>Repartir el enlace del bot. El candado por ID ayuda, pero el enlace no se comparte.</li>
+      <li>Instalarlo en un equipo de un tercero: quien sea dueño de la máquina puede leer el <code>.env</code>.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>Actualizar</h2>
+  <div class="bloque"><button class="copiar">copiar</button><pre>cd $HOME\Documents\KynicOS
+git pull
+.\.venv\Scripts\python.exe -m pip install -q -r requirements-bot.txt</pre></div>
+  <p class="nota">Documento completo y explicado: <code>docs/GUIA-ARRANQUE-WINDOWS.md</code> en el repositorio KynicOS.</p>
+</section>
+
+</main>
+<script>
+document.querySelectorAll('.copiar').forEach((b) => {
+  b.addEventListener('click', async () => {
+    const t = b.parentElement.querySelector('pre').innerText;
+    try { await navigator.clipboard.writeText(t); b.textContent = 'copiado'; }
+    catch { const r = document.createRange(); r.selectNodeContents(b.parentElement.querySelector('pre'));
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Ctrl+C'; }
+    setTimeout(() => { b.textContent = 'copiar'; }, 1800);
+  });
+});
+</script>
+</body>
+</html>
