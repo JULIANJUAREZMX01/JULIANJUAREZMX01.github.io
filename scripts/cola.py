@@ -64,6 +64,7 @@ if len(trabajo) > TOPE_DIARIO:
     lineas += ["", f"## Esperando turno ({len(trabajo)-TOPE_DIARIO})"]
     for t in trabajo[TOPE_DIARIO:TOPE_DIARIO+15]:
         lineas.append(f"- {t['repo']} #{t['num']} · {t['titulo']} ({t['edad']} d)")
-open("COLA.md", "w").write("\n".join(lineas) + "\n")
+os.makedirs("docs", exist_ok=True)
+open(os.path.join("docs", "COLA.md"), "w").write("\n".join(lineas) + "\n")
 json.dump({"fecha": hoy, "repos": len(uniq), "cola": trabajo}, open("cola.json", "w"), ensure_ascii=False, indent=1)
 print("\n".join(lineas[:14]))
